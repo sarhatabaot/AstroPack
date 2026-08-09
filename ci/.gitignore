@@ -1,0 +1,7 @@
+# Generated per-run output. Baselines and suite.json are committed on purpose;
+# everything a run produces is not.
+results/
+bench/results/
+suite.generated.json
+triage-report.md
+__pycache__/

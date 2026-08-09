@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+# AstroPack pre-push hook -- installed by ci/install-hooks.sh
+#
+# Runs only the fast, MATLAB-free gates, so pushing stays quick. The MATLAB
+# suite runs in GitHub Actions; run it yourself with `ci/run-local.sh tests`.
+#
+# Bypass once with:  git push --no-verify
+
+set -uo pipefail
+
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+cd "$REPO_ROOT" || exit 0
+
+if ! command -v python3 >/dev/null 2>&1; then
+    echo "pre-push: python3 not found, skipping conventions check." >&2
+    exit 0
+fi
+
+echo "pre-push: checking test conventions..."
+if ! python3 ci/lint/check_conventions.py; then
+    cat >&2 <<'EOF'
+
+Push blocked: new test-convention violations.
+
+These break test discovery or pin a test to one machine. Fix them, or -- if
+the violation is deliberate -- record it:
+
+    python3 ci/lint/check_conventions.py --update-baseline
+
+Bypass once with:  git push --no-verify
+EOF
+    exit 1
+fi
+
+exit 0

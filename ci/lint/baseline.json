@@ -1,0 +1,2741 @@
+{
+  "_comment": "Known pre-existing convention violations, accepted so CI is not red on day one. New violations fail the build. Remove entries as you fix them -- never add by hand, run --update-baseline.",
+  "violations": [
+    {
+      "file": "tests/apps/app_planner_backend/@PlannerBackend/test_PlannerBackend_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_PlannerBackend_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/apps/app_planner_backend/@PlannerBackend/test_PlannerBackend_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/astro/+VO/+prep/test_prep_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_prep_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+VO/+prep/test_prep_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/astro/+VO/test_VO_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_VO_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+VO/test_VO_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/astro/+astro/+binary/test_binary_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_binary_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+astro/+binary/test_binary_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/astro/+astro/+cosmo/test_cosmo_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_cosmo_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+astro/+cosmo/test_cosmo_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/astro/+astro/+grb/test_grb_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_grb_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+astro/+grb/test_grb_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/astro/+astro/+lensing/test_lensing_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_lensing_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+astro/+lensing/test_lensing_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/astro/+astro/+mag/test_mag_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_mag_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+astro/+mag/test_mag_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/astro/+astro/+microlensing/test_microlensing_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_microlensing_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+astro/+microlensing/test_microlensing_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/astro/+astro/+occultation/test_occultation_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_occultation_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+astro/+occultation/test_occultation_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/astro/+astro/+spec/@InterpLC/test_@InterpLC_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_@InterpLC_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+astro/+spec/@InterpLC/test_@InterpLC_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/astro/+astro/+spec/test_spec_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_spec_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+astro/+spec/test_spec_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/astro/+astro/+stars/test_stars_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_stars_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+astro/+stars/test_stars_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/astro/+astro/+supernova/+SOPRANOS/test_SOPRANOS_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_SOPRANOS_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+astro/+supernova/+SOPRANOS/test_SOPRANOS_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/astro/+astro/+supernova/test_supernova_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_supernova_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+astro/+supernova/test_supernova_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/astro/+astro/@Cosmology/test_@Cosmology_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_@Cosmology_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+astro/@Cosmology/test_@Cosmology_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/astro/+astro/test_astro_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_astro_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+astro/test_astro_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/astro/+celestial/+Kepler/test_Kepler_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_Kepler_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+celestial/+Kepler/test_Kepler_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/astro/+celestial/+SolarSys/test_SolarSys_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_SolarSys_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+celestial/+SolarSys/test_SolarSys_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/astro/+celestial/+convert/test_CelestialConvert.m",
+      "rule": "name-mismatch",
+      "key": "TestCelestialConvert",
+      "message": "Primary function is 'TestCelestialConvert' but the file is 'test_CelestialConvert.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+celestial/+convert/test_convert_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_convert_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+celestial/+convert/test_convert_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/astro/+celestial/+coo/test_area_sphere_polygon1.m",
+      "rule": "name-mismatch",
+      "key": "test_area_sphere_polygon",
+      "message": "Primary function is 'test_area_sphere_polygon' but the file is 'test_area_sphere_polygon1.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+celestial/+coo/test_coo2box.m",
+      "rule": "abs-path",
+      "key": "~/",
+      "message": "Hardcoded absolute path '~/'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/astro/+celestial/+coo/test_coo_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_coo_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+celestial/+coo/test_coo_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/astro/+celestial/+coo/test_coo_resolver.m",
+      "rule": "abs-path",
+      "key": "~/",
+      "message": "Hardcoded absolute path '~/'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/astro/+celestial/+coo/test_proper_motion.m",
+      "rule": "abs-path",
+      "key": "~/",
+      "message": "Hardcoded absolute path '~/'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/astro/+celestial/+coo/test_refraction.m",
+      "rule": "abs-path",
+      "key": "~/",
+      "message": "Hardcoded absolute path '~/'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/astro/+celestial/+coo/test_sky_area_above_am.m",
+      "rule": "abs-path",
+      "key": "~/",
+      "message": "Hardcoded absolute path '~/'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/astro/+celestial/+coo/test_spherical_tri_area.m",
+      "rule": "abs-path",
+      "key": "~/",
+      "message": "Hardcoded absolute path '~/'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/astro/+celestial/+coo/test_spherical_triangle_circum_circle.m",
+      "rule": "abs-path",
+      "key": "~/",
+      "message": "Hardcoded absolute path '~/'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/astro/+celestial/+earth/test_earth_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_earth_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+celestial/+earth/test_earth_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/astro/+celestial/+ephem/test_ephem_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_ephem_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+celestial/+ephem/test_ephem_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/astro/+celestial/+grid/test_CelAnnulusArea.m",
+      "rule": "name-mismatch",
+      "key": "TestCelAnnulusArea",
+      "message": "Primary function is 'TestCelAnnulusArea' but the file is 'test_CelAnnulusArea.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+celestial/+grid/test_INPOP.m",
+      "rule": "name-mismatch",
+      "key": "TestINPOP",
+      "message": "Primary function is 'TestINPOP' but the file is 'test_INPOP.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+celestial/+grid/test_TileTheSky.m",
+      "rule": "name-mismatch",
+      "key": "TestTileTheSky",
+      "message": "Primary function is 'TestTileTheSky' but the file is 'test_TileTheSky.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+celestial/+htm/test_htm_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_htm_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+celestial/+htm/test_htm_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/astro/+celestial/+map/test_map_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_map_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+celestial/+map/test_map_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/astro/+celestial/+meteors/test_meteors_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_meteors_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+celestial/+meteors/test_meteors_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/astro/+celestial/+pm/test_pm_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_pm_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+celestial/+pm/test_pm_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/astro/+celestial/+proj/test_proj_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_proj_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+celestial/+proj/test_proj_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/astro/+celestial/+scheduling/test_scheduling_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_scheduling_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+celestial/+scheduling/test_scheduling_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/astro/+celestial/+search/test_search_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_search_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+celestial/+search/test_search_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/astro/+celestial/+stars/test_stars_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_stars_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+celestial/+stars/test_stars_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/astro/+celestial/+time/test_time_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_time_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+celestial/+time/test_time_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/astro/+celestial/@INPOP/test_@INPOP_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_@INPOP_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+celestial/@INPOP/test_@INPOP_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/astro/+celestial/@KDTreeCoo/test_@KDTreeCoo_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_@KDTreeCoo_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+celestial/@KDTreeCoo/test_@KDTreeCoo_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/astro/+celestial/@OrbitalEl/test_@OrbitalEl_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_@OrbitalEl_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+celestial/@OrbitalEl/test_@OrbitalEl_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/astro/+celestial/@Targets/test_@Targets_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_@Targets_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+celestial/@Targets/test_@Targets_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/astro/+celestial/@mpDB/test_@mpDB_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_@mpDB_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+celestial/@mpDB/test_@mpDB_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/astro/+telescope/+Optics/test_Optics_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_Optics_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+telescope/+Optics/test_Optics_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/astro/+telescope/+obs/test_obs_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_obs_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+telescope/+obs/test_obs_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/astro/+telescope/+sn/test_sn_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_sn_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+telescope/+sn/test_sn_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/astro/+timeSeries/+obsolete/test_obsolete_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_obsolete_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+timeSeries/+obsolete/test_obsolete_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/astro/+ultrasat/test_ultrasat_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_ultrasat_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/+ultrasat/test_ultrasat_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/astro/@AstroAngle/test_AstroAngle_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_AstroAngle_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/@AstroAngle/test_AstroAngle_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/astro/@UltrasatPerf/test_UltrasatPerf_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_UltrasatPerf_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/@UltrasatPerf/test_UltrasatPerf_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/astro/@UltrasatPerf2GUI/test_UltrasatPerf2GUI_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_UltrasatPerf2GUI_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/astro/@UltrasatPerf2GUI/test_UltrasatPerf2GUI_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/astro/TestAstroAngle.m",
+      "rule": "name-mismatch",
+      "key": "TestAstroAngleFunctionBased",
+      "message": "Primary function is 'TestAstroAngleFunctionBased' but the file is 'TestAstroAngle.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/base/@Base/test_Base_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_Base_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/base/@Base/test_Base_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/base/@Component/test_Component_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_Component_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/base/@Component/test_Component_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/base/@ComponentMap/test_ComponentMap_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_ComponentMap_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/base/@ComponentMap/test_ComponentMap_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/base/@Configuration/test_Configuration_01.m",
+      "rule": "abs-path",
+      "key": "D:\\Ultrasat\\AstroPack.git\\config",
+      "message": "Hardcoded absolute path 'D:\\Ultrasat\\AstroPack.git\\config'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/base/@Configuration/test_Configuration_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_Configuration_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/base/@Configuration/test_Configuration_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/base/@Exception/test_Exception_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_Exception_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/base/@Exception/test_Exception_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/base/@FileManager/test_FileManager_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_FileManager_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/base/@FileManager/test_FileManager_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/base/@FileMap/test_FileMap_01.m",
+      "rule": "abs-path",
+      "key": "c:/temp",
+      "message": "Hardcoded absolute path 'c:/temp'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/base/@FileMap/test_FileMap_01.m",
+      "rule": "abs-path",
+      "key": "c:/temp/123.txtj",
+      "message": "Hardcoded absolute path 'c:/temp/123.txtj'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/base/@FileMap/test_FileMap_01.m",
+      "rule": "abs-path",
+      "key": "~/dev",
+      "message": "Hardcoded absolute path '~/dev'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/base/@FileMap/test_FileMap_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_FileMap_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/base/@FileMap/test_FileMap_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/base/@FileProcessor/test_FileProcessor_01.m",
+      "rule": "abs-path",
+      "key": "c:/soc/snr/input",
+      "message": "Hardcoded absolute path 'c:/soc/snr/input'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/base/@FileProcessor/test_FileProcessor_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_FileProcessor_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/base/@FileProcessor/test_FileProcessor_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/base/@LogFile/test_LogFile_01.m",
+      "rule": "abs-path",
+      "key": "/tmp",
+      "message": "Hardcoded absolute path '/tmp'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/base/@LogFile/test_LogFile_01.m",
+      "rule": "abs-path",
+      "key": "C:\\Temp",
+      "message": "Hardcoded absolute path 'C:\\Temp'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/base/@LogFile/test_LogFile_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_LogFile_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/base/@LogFile/test_LogFile_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/base/@MsgLogger/test_MsgLogger_01.m",
+      "rule": "abs-path",
+      "key": "/tmp",
+      "message": "Hardcoded absolute path '/tmp'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/base/@MsgLogger/test_MsgLogger_01.m",
+      "rule": "abs-path",
+      "key": "C:/temp/SystemLogFileName.log",
+      "message": "Hardcoded absolute path 'C:/temp/SystemLogFileName.log'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/base/@MsgLogger/test_MsgLogger_01.m",
+      "rule": "abs-path",
+      "key": "C:\\Temp",
+      "message": "Hardcoded absolute path 'C:\\Temp'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/base/@MsgLogger/test_MsgLogger_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_MsgLogger_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/base/@MsgLogger/test_MsgLogger_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/base/@PasswordsManager/test_PasswordsManager_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_PasswordsManager_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/base/@PasswordsManager/test_PasswordsManager_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/base/obsolete/@HandleBase/test_HandleBase_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_HandleBase_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/base/obsolete/@HandleBase/test_HandleBase_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/base/obsolete/@HandleComponent/test_HandleComponent_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_HandleComponent_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/base/obsolete/@HandleComponent/test_HandleComponent_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/base/test_base_01.m",
+      "rule": "abs-path",
+      "key": "/home/eran/matlab/AstroPack/matlab/",
+      "message": "Hardcoded absolute path '/home/eran/matlab/AstroPack/matlab/'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/base/test_base_01.m",
+      "rule": "abs-path",
+      "key": "D:\\Ultrasat\\AstroPack.git\\matlab\\",
+      "message": "Hardcoded absolute path 'D:\\Ultrasat\\AstroPack.git\\matlab\\'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/base/test_base_01.m",
+      "rule": "name-mismatch",
+      "key": "UnitTester",
+      "message": "Primary classdef is 'UnitTester' but the file is 'test_base_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/doc/autogen/templates/test_templates_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_templates_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/doc/autogen/templates/test_templates_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/external/+yaml/Tests/test_Tests_01.m",
+      "rule": "name-mismatch",
+      "key": "test_WriteYaml",
+      "message": "Primary function is 'test_WriteYaml' but the file is 'test_Tests_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/external/+yaml/Tests/test_Tests_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/external/CopyMask/test_CopyMask_01.m",
+      "rule": "name-mismatch",
+      "key": "uTest_CopyMask",
+      "message": "Primary function is 'uTest_CopyMask' but the file is 'test_CopyMask_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/external/CopyMask/test_CopyMask_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/external/VChooseK/test_VChooseK_01.m",
+      "rule": "name-mismatch",
+      "key": "TestVChooseK",
+      "message": "Primary function is 'TestVChooseK' but the file is 'test_VChooseK_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/external/VChooseK/test_VChooseK_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/external/str2doubles/str2doubles/test_str2doubles_01.m",
+      "rule": "name-mismatch",
+      "key": "test_str_to_double_performance",
+      "message": "Primary function is 'test_str_to_double_performance' but the file is 'test_str2doubles_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/external/str2doubles/str2doubles/test_str2doubles_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/+imProc/+art/test_art_01.m",
+      "rule": "abs-path",
+      "key": "~/Simulated_it1.reg",
+      "message": "Hardcoded absolute path '~/Simulated_it1.reg'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/image/+imProc/+art/test_art_01.m",
+      "rule": "abs-path",
+      "key": "~/Simulated_it2.reg",
+      "message": "Hardcoded absolute path '~/Simulated_it2.reg'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/image/+imProc/+art/test_art_01.m",
+      "rule": "abs-path",
+      "key": "~/Simulated_it3.reg",
+      "message": "Hardcoded absolute path '~/Simulated_it3.reg'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/image/+imProc/+art/test_art_01.m",
+      "rule": "abs-path",
+      "key": "~/insrc.reg",
+      "message": "Hardcoded absolute path '~/insrc.reg'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/image/+imProc/+art/test_art_01.m",
+      "rule": "abs-path",
+      "key": "~/insrc.reg",
+      "message": "Hardcoded absolute path '~/insrc.reg'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/image/+imProc/+art/test_art_01.m",
+      "rule": "abs-path",
+      "key": "~/insrc.reg",
+      "message": "Hardcoded absolute path '~/insrc.reg'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/image/+imProc/+art/test_art_01.m",
+      "rule": "abs-path",
+      "key": "~/matlab/data/TestImages/unitTest/LAST_346+79_crop10.fits",
+      "message": "Hardcoded absolute path '~/matlab/data/TestImages/unitTest/LAST_346+79_crop10.fits'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/image/+imProc/+art/test_art_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_art_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/+imProc/+art/test_art_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/+imProc/+astrometry/test_astrometry_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_astrometry_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/+imProc/+astrometry/test_astrometry_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/+imProc/+background/test_background_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_background_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/+imProc/+background/test_background_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/+imProc/+calib/test_calib_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_calib_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/+imProc/+calib/test_calib_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/+imProc/+cat/test_cat_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_cat_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/+imProc/+cat/test_cat_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/+imProc/+dark/test_dark_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_dark_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/+imProc/+dark/test_dark_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/+imProc/+flat/test_flat_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_flat_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/+imProc/+flat/test_flat_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/+imProc/+image/test_image_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_image_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/+imProc/+image/test_image_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/+imProc/+instCharc/test_instCharc_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_instCharc_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/+imProc/+instCharc/test_instCharc_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/+imProc/+mask/test_mask_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_mask_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/+imProc/+mask/test_mask_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/+imProc/+match/test_match_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_match_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/+imProc/+match/test_match_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/+imProc/+sources/test_sources_01.m",
+      "rule": "abs-path",
+      "key": "/mnt/marvin",
+      "message": "Hardcoded absolute path '/mnt/marvin'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/image/+imProc/+sources/test_sources_01.m",
+      "rule": "abs-path",
+      "key": "~/275-16_it1.reg",
+      "message": "Hardcoded absolute path '~/275-16_it1.reg'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/image/+imProc/+sources/test_sources_01.m",
+      "rule": "abs-path",
+      "key": "~/275-16_it2.reg",
+      "message": "Hardcoded absolute path '~/275-16_it2.reg'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/image/+imProc/+sources/test_sources_01.m",
+      "rule": "abs-path",
+      "key": "~/275-16_it3.reg",
+      "message": "Hardcoded absolute path '~/275-16_it3.reg'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/image/+imProc/+sources/test_sources_01.m",
+      "rule": "abs-path",
+      "key": "~/346+79_it1.reg",
+      "message": "Hardcoded absolute path '~/346+79_it1.reg'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/image/+imProc/+sources/test_sources_01.m",
+      "rule": "abs-path",
+      "key": "~/346+79_it2.reg",
+      "message": "Hardcoded absolute path '~/346+79_it2.reg'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/image/+imProc/+sources/test_sources_01.m",
+      "rule": "abs-path",
+      "key": "~/346+79_it3.reg",
+      "message": "Hardcoded absolute path '~/346+79_it3.reg'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/image/+imProc/+sources/test_sources_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_sources_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/+imProc/+sources/test_sources_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/+imProc/+stack/test_stack_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_stack_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/+imProc/+stack/test_stack_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/+imProc/+stat/test_stat_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_stat_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/+imProc/+stat/test_stat_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/+imProc/+trans/test_trans_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_trans_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/+imProc/+trans/test_trans_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/+imProc/+transIm/test_transIm_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_transIm_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/+imProc/+transIm/test_transIm_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/+imUtil/+art/test_art_01.m",
+      "rule": "abs-path",
+      "key": "~/matlab/data/TestImages/unitTest/LAST_275-16_crop22.fits",
+      "message": "Hardcoded absolute path '~/matlab/data/TestImages/unitTest/LAST_275-16_crop22.fits'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/image/+imUtil/+art/test_art_01.m",
+      "rule": "abs-path",
+      "key": "~/matlab/data/TestImages/unitTest/LAST_346+79_crop10.fits",
+      "message": "Hardcoded absolute path '~/matlab/data/TestImages/unitTest/LAST_346+79_crop10.fits'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/image/+imUtil/+art/test_art_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_art_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/+imUtil/+art/test_art_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/+imUtil/+calib/test_calib_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_calib_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/+imUtil/+calib/test_calib_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/+imUtil/+ccdsec/test_ccdsec_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_ccdsec_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/+imUtil/+ccdsec/test_ccdsec_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/+imUtil/+cut/+mex/test_mex_01.m",
+      "rule": "name-mismatch",
+      "key": "mex_cutouts_unitTest",
+      "message": "Primary function is 'mex_cutouts_unitTest' but the file is 'test_mex_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/+imUtil/+cut/+mex/test_mex_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/+imUtil/+cut/test_cut_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_cut_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/+imUtil/+cut/test_cut_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/+imUtil/+filter/test_filter_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_filter_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/+imUtil/+filter/test_filter_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/+imUtil/+frt/test_frt_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_frt_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/+imUtil/+frt/test_frt_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/+imUtil/+image/test_image_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_image_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/+imUtil/+image/test_image_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/+imUtil/+interp/test_interp_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_interp_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/+imUtil/+interp/test_interp_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/+imUtil/+kernel2/test_kernel2_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_kernel2_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/+imUtil/+kernel2/test_kernel2_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/+imUtil/+patternMatch/test_patternMatch_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_patternMatch_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/+imUtil/+patternMatch/test_patternMatch_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/+imUtil/+psf/test_psf_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_psf_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/+imUtil/+psf/test_psf_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/+imUtil/+sources/test_sources_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_sources_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/+imUtil/+sources/test_sources_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/+imUtil/+spec/test_spec_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_spec_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/+imUtil/+spec/test_spec_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/+imUtil/+trans/test_trans_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_trans_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/+imUtil/+trans/test_trans_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/+imUtil/+util/+class/test_class_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_class_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/+imUtil/+util/+class/test_class_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/+imUtil/+util/+file/test_file_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_file_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/+imUtil/+util/+file/test_file_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/+imUtil/+util/+fit/test_fit_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_fit_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/+imUtil/+util/+fit/test_fit_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/+imUtil/+util/+fits/test_fits_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_fits_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/+imUtil/+util/+fits/test_fits_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/+imUtil/+util/test_util_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_util_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/+imUtil/+util/test_util_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/+imUtil/test_imUtil_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_imUtil_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/+imUtil/test_imUtil_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/+pipeline/+generic/test_generic_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_generic_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/+pipeline/+generic/test_generic_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/+pipeline/+last/test_last_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_last_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/+pipeline/+last/test_last_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/+pipeline/+ultrasat/test_ultrasat_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_ultrasat_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/+pipeline/+ultrasat/test_ultrasat_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/+pipeline/@DemonLAST/test_@DemonLAST_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_@DemonLAST_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/+pipeline/@DemonLAST/test_@DemonLAST_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/+pipeline/test_pipeline_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_pipeline_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/+pipeline/test_pipeline_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/@AstroCatalog/test_AstroCatalog_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_AstroCatalog_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/@AstroCatalog/test_AstroCatalog_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/@AstroCube/test_AstroCube_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_AstroCube_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/@AstroCube/test_AstroCube_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/@AstroDiff/test_AstroDiff_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_AstroDiff_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/@AstroDiff/test_AstroDiff_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/@AstroHeader/test_AstroHeader_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_AstroHeader_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/@AstroHeader/test_AstroHeader_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/@AstroImage/test_AstroImage_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_AstroImage_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/@AstroImage/test_AstroImage_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/@AstroPSF/test_AstroPSF_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_AstroPSF_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/@AstroPSF/test_AstroPSF_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/@AstroSpec/test_AstroSpec_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_AstroSpec_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/@AstroSpec/test_AstroSpec_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/@AstroTable/test_AstroTable_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_AstroTable_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/@AstroTable/test_AstroTable_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/@AstroTransient/test_AstroTransient_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_AstroTransient_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/@AstroTransient/test_AstroTransient_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/@AstroTransmission/test_AstroTransmission_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_AstroTransmission_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/@AstroTransmission/test_AstroTransmission_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/@AstroWCS/test_AstroWCS_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_AstroWCS_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/@AstroWCS/test_AstroWCS_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/@AstroZOGY/test_AstroZOGY_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_AstroZOGY_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/@AstroZOGY/test_AstroZOGY_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/@BackImage/test_BackImage_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_BackImage_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/@BackImage/test_BackImage_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/@CalibImages/test_CalibImages_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_CalibImages_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/@CalibImages/test_CalibImages_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/@CubeComponent/test_CubeComponent_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_CubeComponent_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/@CubeComponent/test_CubeComponent_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/@DS9_new/test_DS9_new_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_DS9_new_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/@DS9_new/test_DS9_new_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/@DS9analysis/test_DS9analysis_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_DS9analysis_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/@DS9analysis/test_DS9analysis_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/@ExpImage/test_ExpImage_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_ExpImage_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/@ExpImage/test_ExpImage_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/@FITS/test_FITS_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_FITS_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/@FITS/test_FITS_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/@FileNames/test_FileNames_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_FileNames_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/@FileNames/test_FileNames_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/@ImageComponent/test_ImageComponent_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_ImageComponent_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/@ImageComponent/test_ImageComponent_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/@ImageIO/test_ImageIO_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_ImageIO_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/@ImageIO/test_ImageIO_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/@ImagePath/test_ImagePath_01.m",
+      "rule": "abs-path",
+      "key": "/home/last",
+      "message": "Hardcoded absolute path '/home/last'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/image/@ImagePath/test_ImagePath_01.m",
+      "rule": "abs-path",
+      "key": "/home/last/data/2021/09/09/log/subdir/",
+      "message": "Hardcoded absolute path '/home/last/data/2021/09/09/log/subdir/'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/image/@ImagePath/test_ImagePath_01.m",
+      "rule": "abs-path",
+      "key": "/home/last/data/2021/09/09/proc/subdir/",
+      "message": "Hardcoded absolute path '/home/last/data/2021/09/09/proc/subdir/'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/image/@ImagePath/test_ImagePath_01.m",
+      "rule": "abs-path",
+      "key": "/home/last/data/2021/09/09/proc/subdir/",
+      "message": "Hardcoded absolute path '/home/last/data/2021/09/09/proc/subdir/'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/image/@ImagePath/test_ImagePath_01.m",
+      "rule": "abs-path",
+      "key": "/home/last/data/2021/09/09/proc/subdir/",
+      "message": "Hardcoded absolute path '/home/last/data/2021/09/09/proc/subdir/'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/image/@ImagePath/test_ImagePath_01.m",
+      "rule": "abs-path",
+      "key": "/home/last/data/2021/09/09/proc/subdir/",
+      "message": "Hardcoded absolute path '/home/last/data/2021/09/09/proc/subdir/'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/image/@ImagePath/test_ImagePath_01.m",
+      "rule": "abs-path",
+      "key": "/home/last/data/2021/09/09/raw/subdir/",
+      "message": "Hardcoded absolute path '/home/last/data/2021/09/09/raw/subdir/'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/image/@ImagePath/test_ImagePath_01.m",
+      "rule": "abs-path",
+      "key": "/home/last/data/2021/09/09/stacked/subdir/",
+      "message": "Hardcoded absolute path '/home/last/data/2021/09/09/stacked/subdir/'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/image/@ImagePath/test_ImagePath_01.m",
+      "rule": "abs-path",
+      "key": "/home/last/data/calib/Fn/subdir/",
+      "message": "Hardcoded absolute path '/home/last/data/calib/Fn/subdir/'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/image/@ImagePath/test_ImagePath_01.m",
+      "rule": "abs-path",
+      "key": "/home/last/data/calib/Rn/subdir/",
+      "message": "Hardcoded absolute path '/home/last/data/calib/Rn/subdir/'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/image/@ImagePath/test_ImagePath_01.m",
+      "rule": "abs-path",
+      "key": "/home/last/data/calib/m/subdir/",
+      "message": "Hardcoded absolute path '/home/last/data/calib/m/subdir/'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/image/@ImagePath/test_ImagePath_01.m",
+      "rule": "abs-path",
+      "key": "/home/last/data/calib/r/subdir/",
+      "message": "Hardcoded absolute path '/home/last/data/calib/r/subdir/'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/image/@ImagePath/test_ImagePath_01.m",
+      "rule": "abs-path",
+      "key": "/home/last/data/coadd/1/subdir/",
+      "message": "Hardcoded absolute path '/home/last/data/coadd/1/subdir/'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/image/@ImagePath/test_ImagePath_01.m",
+      "rule": "abs-path",
+      "key": "/home/last/data/ref/1/subdir/",
+      "message": "Hardcoded absolute path '/home/last/data/ref/1/subdir/'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/image/@ImagePath/test_ImagePath_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_ImagePath_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/@ImagePath/test_ImagePath_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/@MaskImage/test_MaskImage_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_MaskImage_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/@MaskImage/test_MaskImage_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/@MatchedSources/test_MatchedSources_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_MatchedSources_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/@MatchedSources/test_MatchedSources_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/@MovingSource/test_MovingSource_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_MovingSource_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/@MovingSource/test_MovingSource_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/@PhotonsList/test_PhotonsList_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_PhotonsList_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/@PhotonsList/test_PhotonsList_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/@SciImage/test_SciImage_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_SciImage_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/@SciImage/test_SciImage_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/@Tran2D/obsolete/test_obsolete_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_obsolete_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/@Tran2D/obsolete/test_obsolete_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/@Tran2D/test_Tran2D_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_Tran2D_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/@Tran2D/test_Tran2D_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/@VarImage/test_VarImage_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_VarImage_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/@VarImage/test_VarImage_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/@ds9/test_ds9_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_ds9_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/@ds9/test_ds9_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/obsolete/@ImageProc/test_ImageProc_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_ImageProc_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/obsolete/@ImageProc/test_ImageProc_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/image/obsolete/test_obsolete_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_obsolete_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/image/obsolete/test_obsolete_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/mex/readmatrix/+mex/draft/test_draft_01.m",
+      "rule": "name-mismatch",
+      "key": "test_phonebook",
+      "message": "Primary function is 'test_phonebook' but the file is 'test_draft_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/mex/readmatrix/+mex/draft/test_draft_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/mex/writematrix/+mex/draft/test_draft_01.m",
+      "rule": "name-mismatch",
+      "key": "test_phonebook",
+      "message": "Primary function is 'test_phonebook' but the file is 'test_draft_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/mex/writematrix/+mex/draft/test_draft_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/obsolete/+ImUtil/+pattern/test_pattern_01.m",
+      "rule": "name-mismatch",
+      "key": "test_match",
+      "message": "Primary function is 'test_match' but the file is 'test_pattern_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/obsolete/+ImUtil/+pattern/test_pattern_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/obsolete/@Rect/test_Rect_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_Rect_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/obsolete/@Rect/test_Rect_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/python/test1/test_test1_01.m",
+      "rule": "abs-path",
+      "key": "C:\\Python38\\python.exe",
+      "message": "Hardcoded absolute path 'C:\\Python38\\python.exe'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/python/test1/test_test1_01.m",
+      "rule": "name-mismatch",
+      "key": "simpletest_test",
+      "message": "Primary function is 'simpletest_test' but the file is 'test_test1_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/python/test1/test_test1_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/testing/test_compile/test_test_compile_01.m",
+      "rule": "name-mismatch",
+      "key": "test1",
+      "message": "Primary function is 'test1' but the file is 'test_test_compile_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/testing/test_compile/test_test_compile_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/testing/test_compile2/test_test_compile2_01.m",
+      "rule": "name-mismatch",
+      "key": "test2",
+      "message": "Primary function is 'test2' but the file is 'test_test_compile2_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/testing/test_compile2/test_test_compile2_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/testing/test_dynamicprops/test_test_dynamicprops_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_test_dynamicprops_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/testing/test_dynamicprops/test_test_dynamicprops_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/testing/test_handle_vs_value/Handle_Object_Behavior/test_Handle_Object_Behavior_01.m",
+      "rule": "name-mismatch",
+      "key": "myFunc",
+      "message": "Primary function is 'myFunc' but the file is 'test_Handle_Object_Behavior_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/testing/test_handle_vs_value/Handle_Object_Behavior/test_Handle_Object_Behavior_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/testing/test_handle_vs_value/Updating_property_of_an_Object_without_creating_new_object/test_Updating_property_of_an_Object_without_creating_new_object_01.m",
+      "rule": "name-mismatch",
+      "key": "testClass",
+      "message": "Primary classdef is 'testClass' but the file is 'test_Updating_property_of_an_Object_without_creating_new_object_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/testing/test_handle_vs_value/memory_test/test_memory_test_01.m",
+      "rule": "name-mismatch",
+      "key": "allocTest1",
+      "message": "Primary function is 'allocTest1' but the file is 'test_memory_test_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/testing/test_handle_vs_value/memory_test/test_memory_test_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/testing/test_handle_vs_value/performance_test/test_performance_test_01.m",
+      "rule": "name-mismatch",
+      "key": "perfTest",
+      "message": "Primary function is 'perfTest' but the file is 'test_performance_test_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/testing/test_handle_vs_value/performance_test/test_performance_test_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/+db/+testing/test_testing_01.m",
+      "rule": "abs-path",
+      "key": "C:\\Temp\\abc.csv",
+      "message": "Hardcoded absolute path 'C:\\Temp\\abc.csv'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/util/+db/+testing/test_testing_01.m",
+      "rule": "abs-path",
+      "key": "c:/temp/ins1.csv",
+      "message": "Hardcoded absolute path 'c:/temp/ins1.csv'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/util/+db/@AstroDb/test_@AstroDb_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_@AstroDb_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/+db/@AstroDb/test_@AstroDb_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/+db/@Db/test_@Db_01.m",
+      "rule": "abs-path",
+      "key": "~/matlab/data/db/Design-Database-Pipeline-ClickHouse.xlsx",
+      "message": "Hardcoded absolute path '~/matlab/data/db/Design-Database-Pipeline-ClickHouse.xlsx'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/util/+db/@Db/test_@Db_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_@Db_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/+db/@Db/test_@Db_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/+db/@DbConnection/test_@DbConnection_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_@DbConnection_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/+db/@DbConnection/test_@DbConnection_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/+db/@DbDriver/test_@DbDriver_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_@DbDriver_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/+db/@DbDriver/test_@DbDriver_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/+db/@DbQuery/test_@DbQuery_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_@DbQuery_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/+db/@DbQuery/test_@DbQuery_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/+db/@DbRecord/test_@DbRecord_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_@DbRecord_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/+db/@DbRecord/test_@DbRecord_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/+db/@IncomingAlertsDb/test_@IncomingAlertsDb_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_@IncomingAlertsDb_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/+db/@IncomingAlertsDb/test_@IncomingAlertsDb_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/+db/@PlannerDb/test_@PlannerDb_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_@PlannerDb_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/+db/@PlannerDb/test_@PlannerDb_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/+db/draft/@AstroDb/test_@AstroDb_01.m",
+      "rule": "abs-path",
+      "key": "c:\\\\temp\\\\Cat-%d.csv",
+      "message": "Hardcoded absolute path 'c:\\\\temp\\\\Cat-%d.csv'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/util/+db/draft/@AstroDb/test_@AstroDb_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_@AstroDb_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/+db/draft/@AstroDb/test_@AstroDb_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/+db/draft/@AstroStore/test_@AstroStore_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_@AstroStore_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/+db/draft/@AstroStore/test_@AstroStore_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/+db/draft/@ImagePathDb/test_@ImagePathDb_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_@ImagePathDb_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/+db/draft/@ImagePathDb/test_@ImagePathDb_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/+db/test_db_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_db_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/+db/test_db_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/+io/+files/+mex/test_mex_01.m",
+      "rule": "name-mismatch",
+      "key": "test_writecsv",
+      "message": "Primary function is 'test_writecsv' but the file is 'test_mex_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/+io/+files/+mex/test_mex_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/+io/+files/test_files_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_files_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/+io/+files/test_files_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/+io/+fits/test_fits_01.m",
+      "rule": "abs-path",
+      "key": "/tmp/gradsquare.fits",
+      "message": "Hardcoded absolute path '/tmp/gradsquare.fits'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/util/+io/+fits/test_fits_01.m",
+      "rule": "name-mismatch",
+      "key": "unittestWriteSimple",
+      "message": "Primary function is 'unittestWriteSimple' but the file is 'test_fits_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/+io/+fits/test_fits_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/+io/test_io_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_io_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/+io/test_io_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/+plot/test_plot_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_plot_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/+plot/test_plot_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/+tools/+array/test_array_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_array_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/+tools/+array/test_array_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/+tools/+cell/test_cell_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_cell_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/+tools/+cell/test_cell_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/+tools/+checksum/test_checksum_01.m",
+      "rule": "abs-path",
+      "key": "c:\\\\temp\\\\v08.mp4",
+      "message": "Hardcoded absolute path 'c:\\\\temp\\\\v08.mp4'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
+    },
+    {
+      "file": "tests/util/+tools/+checksum/test_checksum_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_checksum_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/+tools/+checksum/test_checksum_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/+tools/+code/test_code_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_code_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/+tools/+code/test_code_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/+tools/+find/test_find_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_find_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/+tools/+find/test_find_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/+tools/+hist/test_hist_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_hist_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/+tools/+hist/test_hist_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/+tools/+install/test_install_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_install_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/+tools/+install/test_install_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/+tools/+interp/test_interp_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_interp_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/+tools/+interp/test_interp_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/+tools/+latex/test_latex_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_latex_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/+tools/+latex/test_latex_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/+tools/+math/+fft/test_fft_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_fft_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/+tools/+math/+fft/test_fft_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/+tools/+math/+geometry/test_geometry_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_geometry_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/+tools/+math/+geometry/test_geometry_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/+tools/+math/+integral/test_integral_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_integral_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/+tools/+math/+integral/test_integral_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/+tools/+math/+stat/test_stat_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_stat_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/+tools/+math/+stat/test_stat_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/+tools/+math/+symbolic/test_symbolic_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_symbolic_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/+tools/+math/+symbolic/test_symbolic_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/+tools/+math/test_math_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_math_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/+tools/+math/test_math_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/+tools/+operators/test_operators_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_operators_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/+tools/+operators/test_operators_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/+tools/+os/test_os_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_os_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/+tools/+os/test_os_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/+tools/+rand/test_rand_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_rand_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/+tools/+rand/test_rand_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/+tools/+string/test_string_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_string_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/+tools/+string/test_string_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/+tools/+struct/test_struct_01.m",
+      "rule": "name-mismatch",
+      "key": "test_mex_WriteStructCsv",
+      "message": "Primary function is 'test_mex_WriteStructCsv' but the file is 'test_struct_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/+tools/+struct/test_struct_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/+tools/+unitTester/test_unitTester_01.m",
+      "rule": "name-mismatch",
+      "key": "testAll",
+      "message": "Primary function is 'testAll' but the file is 'test_unitTester_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/+tools/+unitTester/test_unitTester_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/+tools/test_tools_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_tools_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/+tools/test_tools_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/+www/test_www_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_www_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/+www/test_www_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/@BitDictionary/test_BitDictionary_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_BitDictionary_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/@BitDictionary/test_BitDictionary_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/@Dictionary/test_Dictionary_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_Dictionary_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/@Dictionary/test_Dictionary_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/@HDF5/test_HDF5_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_HDF5_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/@HDF5/test_HDF5_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/@Installer/test_Installer_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_Installer_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/@Installer/test_Installer_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/@constant/test_constant_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_constant_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/@constant/test_constant_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    },
+    {
+      "file": "tests/util/@convert/test_convert_01.m",
+      "rule": "name-mismatch",
+      "key": "unitTest",
+      "message": "Primary function is 'unitTest' but the file is 'test_convert_01.m'. MATLAB discovers tests by filename, so this file is skipped."
+    },
+    {
+      "file": "tests/util/@convert/test_convert_01.m",
+      "rule": "no-suite",
+      "key": "",
+      "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
+    }
+  ]
+}

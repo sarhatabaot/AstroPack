@@ -1,0 +1,94 @@
+name: CI
+
+# "Does it run?" -- the functional gate. Fires on every push and pull request.
+#
+# Two jobs, deliberately ordered by cost:
+#   lint  - pure Python, ~5 s, no MATLAB. Catches the convention breaks that
+#           silently drop a file out of the test suite.
+#   tests - MATLAB. Runs the green tier declared in ci/suite.json.
+#
+# Licensing: MathWorks licenses MATLAB automatically for public repositories,
+# so this needs no secret. If this repo is ever made private, add a batch
+# licensing token as the MLM_LICENSE_TOKEN secret and reference it in the
+# setup-matlab step.
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+    branches: [dev1, main]
+  workflow_dispatch:
+
+# A newer push to the same branch makes the in-flight run obsolete.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # The single place the MATLAB release is defined for CI.
+  #
+  # The lab machines run R2020b, but setup-matlab only supports R2021a and
+  # later, so exact parity is not possible on GitHub-hosted runners. R2021a is
+  # the closest supported release -- one version of drift instead of several.
+  #
+  # Consequence: code using an R2021a feature passes CI and fails on the lab
+  # machines. Keep MATLAB sources in ci/ R2020b-compatible, and close the gap
+  # properly by either upgrading the machines or adding a self-hosted runner
+  # with R2020b (see ci/README.md).
+  MATLAB_RELEASE: R2021a
+
+jobs:
+  lint:
+    name: Test conventions (no MATLAB)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # The CI tooling gates every merge, so it gets its own tests.
+      - name: Self-test the CI tooling
+        run: |
+          python3 ci/lint/test_check_conventions.py
+          python3 ci/bench/test_compare.py
+
+      - name: Check test-file conventions
+        run: |
+          python3 ci/lint/check_conventions.py --github --json ci/results/lint.json
+
+      - name: Upload lint results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lint-results
+          path: ci/results/lint.json
+          if-no-files-found: ignore
+
+  tests:
+    name: MATLAB unit tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up MATLAB
+        uses: matlab-actions/setup-matlab@v3
+        with:
+          release: ${{ env.MATLAB_RELEASE }}
+          cache: true
+
+      - name: Run green-tier tests
+        uses: matlab-actions/run-command@v3
+        with:
+          command: addpath('ci/matlab'); runCITests();
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: matlab-test-results
+          path: ci/results/
+          if-no-files-found: warn

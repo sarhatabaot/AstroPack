@@ -1,0 +1,70 @@
+name: Test triage
+
+# Bootstrap / maintenance for ci/suite.json. Manual only -- this is slow
+# (one MATLAB process per test file) and is not a per-push concern.
+#
+# Run it when:
+#   - setting CI up for the first time, to learn which tests actually pass;
+#   - periodically, to promote files out of quarantine as they get fixed.
+#
+# It never commits. It uploads the regenerated suite config and a readable
+# report as artifacts; you review them and commit ci/suite.json yourself.
+
+on:
+  workflow_dispatch:
+    inputs:
+      only:
+        description: 'Restrict to a path prefix (e.g. tests/astro/+celestial)'
+        required: false
+        default: ''
+      jobs:
+        description: 'Concurrent MATLAB processes'
+        required: false
+        default: '2'
+      timeout:
+        description: 'Per-file timeout in seconds'
+        required: false
+        default: '300'
+      release:
+        description: 'MATLAB release (setup-matlab supports R2021a+)'
+        required: false
+        default: 'R2021a'
+
+jobs:
+  triage:
+    name: Discover which tests pass
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Set up MATLAB
+        uses: matlab-actions/setup-matlab@v3
+        with:
+          release: ${{ inputs.release }}
+          cache: true
+
+      - name: Triage every runnable test file
+        run: |
+          python3 ci/triage.py \
+            --jobs "${{ inputs.jobs }}" \
+            --timeout "${{ inputs.timeout }}" \
+            ${{ inputs.only && format('--only {0}', inputs.only) || '' }}
+
+      - name: Publish report to the job summary
+        if: always()
+        run: cat ci/triage-report.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload generated suite config and report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: triage
+          path: |
+            ci/suite.generated.json
+            ci/triage-report.md
+          if-no-files-found: warn

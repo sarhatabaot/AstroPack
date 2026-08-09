@@ -1,0 +1,254 @@
+# AstroPack CI
+
+Two independent systems, answering two different questions.
+
+| | **Does it run?** | **Does it perform well?** |
+|---|---|---|
+| Question | Did anything break? | Did results get worse? |
+| Verdict | pass / fail | metric vs recorded baseline |
+| Where | GitHub Actions, every push | local, on demand |
+| Entry point | `.github/workflows/ci.yml` | `ci/bench/` |
+| Speed | seconds (lint) to minutes (MATLAB) | as slow as the science |
+
+A unit test tells you `fitPhotCalibTrans` did not throw. It does not tell you
+the zero-point scatter doubled. That is the gap the second system fills.
+
+---
+
+## What you need to know first
+
+A survey of `tests/` at the time this was built found:
+
+- **286** files named `test*.m`
+- **67** of them are real function-based suites that `runtests` can discover
+- **202** declare a primary function called `unitTest`, which does not match
+  their filename — MATLAB dispatches by filename, so these are legacy
+  `matlab/**/unitTest.m` copies, not tests
+- **14** are plain scripts, **3** are `classdef`
+- **56** hardcoded absolute paths (`~/matlab/AstroPack/...`, `C:\Temp`,
+  `D:\Ultrasat\...`) pin tests to one person's machine
+
+So roughly **77% of what looks like a test suite never runs.** CI is built
+around that fact rather than pretending otherwise: it enforces a *green tier*
+of files known to pass, and quarantines the rest with a recorded reason.
+
+Regenerate these numbers any time:
+
+```bash
+python3 ci/lint/check_conventions.py --no-baseline
+python3 ci/triage.py --dry-run
+```
+
+---
+
+## System 1 — functional CI
+
+### Layout
+
+```
+.github/workflows/ci.yml       per-push gate: lint job + MATLAB job
+.github/workflows/triage.yml   manual: discover which tests pass
+ci/suite.json                  green tier + quarantine (committed)
+ci/lint/check_conventions.py   static checks, no MATLAB needed
+ci/lint/baseline.json          accepted pre-existing violations
+ci/matlab/ciSetupPaths.m       deterministic path + RNG setup
+ci/matlab/runCITests.m         runs the green tier, writes JUnit XML
+ci/matlab/ciRunOneTestFile.m   triage worker (one file, one process)
+ci/triage.py                   triage driver
+ci/hooks/pre-push              local fast gate
+ci/run-local.sh                run the gates locally
+```
+
+### The lint (no MATLAB, ~1 s)
+
+Catches the failures that make a test *silently disappear* — worse than a red
+test, because nobody notices.
+
+| Rule | Why it matters |
+|---|---|
+| `name-mismatch` | Primary function ≠ filename → never discovered |
+| `no-suite` | No `functiontests(localfunctions)` → contributes no tests |
+| `no-test-functions` | Builds an empty suite that always "passes" |
+| `abs-path` | Hardcoded absolute path → passes on one machine only |
+
+It runs as a **ratchet**: the 456 existing violations are recorded in
+`ci/lint/baseline.json` and do not fail the build; anything *new* does. Fix a
+legacy one and drop its entry to lock the gain in.
+
+```bash
+python3 ci/lint/check_conventions.py                    # check
+python3 ci/lint/check_conventions.py --no-baseline      # show everything
+python3 ci/lint/check_conventions.py --update-baseline  # accept current state
+```
+
+### The MATLAB job
+
+Runs the files listed under `green` in `ci/suite.json`, writes JUnit XML and a
+JSON summary to `ci/results/`.
+
+`ci/suite.json` ships with `"enforce": false` and all 67 discoverable files in
+the green tier. **Nothing has been verified to pass yet** — no MATLAB was
+available where this was built. So the first CI run *reports* the true state
+without blocking anyone. Then:
+
+1. Read the run, or run `.github/workflows/triage.yml` for a per-file verdict.
+2. Move failures into `quarantine` with a reason.
+3. Set `"enforce": true`. From then on a green-tier failure blocks the merge.
+
+Triage runs each file in **its own MATLAB process** with a timeout, so a hang
+(a blocking network call, a prompt waiting on input) or a segfault isolates to
+one file instead of killing the run.
+
+```bash
+python3 ci/triage.py --dry-run                        # list candidates
+python3 ci/triage.py --jobs 4                         # full triage
+python3 ci/triage.py --only tests/astro/+celestial    # one subtree
+python3 ci/triage.py --promote                        # write ci/suite.json
+```
+
+Verdicts: `passed` and `skipped` → green; `failed`, `error`, `empty`,
+`timeout`, `crash` → quarantine, each with the reason attached.
+
+### Local hooks
+
+```bash
+ci/install-hooks.sh      # sets core.hooksPath, so hooks stay version-controlled
+```
+
+`pre-push` runs only the MATLAB-free lint, so pushing stays fast. Bypass with
+`git push --no-verify`.
+
+---
+
+## System 2 — quality CI
+
+Measurement and judgement are deliberately separated:
+
+- **`ci/bench/runBench.m`** (MATLAB) runs each case and writes raw metrics.
+- **`ci/bench/compare.py`** (Python) compares them to the baseline and decides.
+
+That split means you can re-judge an old run against new tolerances without
+recomputing anything, and the gate logic is unit-tested without MATLAB
+(`ci/bench/test_compare.py`, 21 tests).
+
+### Writing a case
+
+Copy `ci/bench/cases/TEMPLATE_bench_case.m` to `bench_<name>.m`. A case runs a
+piece of the pipeline over a **fixed** input and reduces the output to scalar
+quality numbers:
+
+```matlab
+Result.metrics = struct('zpScatterMag', 0.021, 'nCalibrators', 1873);
+Result.tolerances = struct( ...
+    'zpScatterMag',  struct('abs', 0.002, 'rel', 0.05, 'direction', 'lower_is_better'), ...
+    'nCalibrators',  struct('abs', 20,    'rel', 0.01, 'direction', 'any'));
+Result.meta = struct('description', ..., 'dataset', ..., 'owner', ...);
+```
+
+`bench_harness_selfcheck.m` is a working case using only core MATLAB. If it
+goes red, the problem is the plumbing, not the science — keep it.
+
+### The decision rule
+
+```
+delta   = current - baseline
+allowed = max(abs_tol, rel_tol * |baseline|)
+
+direction='any'               fail when |delta| > allowed
+direction='lower_is_better'   fail when  delta > allowed
+direction='higher_is_better'  fail when -delta > allowed
+```
+
+A move beyond tolerance in the *good* direction is reported as an
+**improvement**, never a failure — but reported loudly, because an unexplained
+10× improvement usually means the case stopped measuring what you thought.
+
+Other verdicts: a **new** metric is noted, not failed. A metric that
+**disappears** fails — a case that quietly stops measuring something must not
+look green.
+
+Tolerances are read from the **case file**, not the baseline, so you can
+retune a gate without re-recording numbers.
+
+### Running it
+
+```bash
+matlab -batch "addpath('ci/matlab'); addpath('ci/bench'); runBench();"
+python3 ci/bench/compare.py             # compare; exit 1 on regression
+python3 ci/bench/compare.py --record    # adopt current numbers as baseline
+ci/run-local.sh bench                   # both steps
+```
+
+Baselines live in `ci/bench/baselines/*.json` and **are committed** — a pull
+request that moves a baseline is asserting "the new numbers are better, and
+here is why", and that belongs in a reviewable diff.
+
+### Choosing what to measure
+
+Still open. Candidates, each needing a frozen input set and agreed metrics:
+
+| Subject | Plausible metrics |
+|---|---|
+| LAST pipeline | astrometric residual RMS, photometric ZP scatter, source counts, false-positive rate |
+| `fitPhotCalibTrans` | fitted transmission residual, ZP scatter, calibrator count |
+| `usim` / ELOPsim | PSF FWHM, noise σ, ADU levels, header conformance |
+| `uplanner` | targets scheduled, slew time, constraint violations |
+
+The harness does not care which you pick — but pick inputs that are committed
+or reachable from an environment variable, never a hardcoded path.
+
+---
+
+## MATLAB release
+
+Defined in **one place**: `MATLAB_RELEASE` in `.github/workflows/ci.yml`
+(triage takes a `release` input, same default).
+
+Currently **R2021a**, because `matlab-actions/setup-matlab` supports R2021a and
+later only, while the lab machines run **R2020b**. R2021a is the closest
+supported release.
+
+The residual gap is real: code using an R2021a-only feature will pass CI and
+fail on the lab machines. Two ways to close it properly —
+
+1. Upgrade the lab machines to a release CI can also run.
+2. Add a self-hosted runner with R2020b and give it the MATLAB job. Exact
+   parity, plus access to `/mnt/euclid`, at the cost of maintaining a machine.
+
+Until then, MATLAB sources under `ci/` are kept R2020b-compatible on purpose
+(for example they avoid `jsonencode(..., 'PrettyPrint', true)`, which postdates
+R2020b), so `ci/run-local.sh` works on the lab machines.
+
+Licensing needs no secret: MathWorks licenses MATLAB automatically for public
+repositories. If this repo goes private, add a batch licensing token as the
+`MLM_LICENSE_TOKEN` secret and reference it in the setup-matlab step.
+
+---
+
+## Determinism
+
+`ciSetupPaths.m` wraps the repo's own `matlab/startup/startup.m` so CI uses the
+same path layout developers do, with two deliberate differences:
+
+- **Seeded RNG.** `startup.m` calls `rng('shuffle')`. CI calls
+  `startup(..., 'setRandomNumbers', false)` and then `rng(0, 'twister')`.
+  Otherwise any test using random data is unreproducible between runs.
+- **`ASTROPACK_PATH` / `ASTROPACK_CONFIG_PATH`** point at the checkout, not at
+  whatever the host happens to have installed.
+
+`UpdateTime` is off, keeping CI off the network.
+
+---
+
+## The CI tooling has its own tests
+
+It gates every merge, so it is tested like anything else:
+
+```bash
+python3 ci/lint/test_check_conventions.py   # 22 tests: lexer + rules
+python3 ci/bench/test_compare.py            # 21 tests: tolerance + gate logic
+```
+
+Both run in the `lint` job on every push. They found two real bugs during
+development: a crash on paths outside the repo, and a length guard that made
+the linter miss `'~/'` — the single most common bad path in this repo.
