@@ -54,6 +54,7 @@ jobs:
         run: |
           python3 ci/lint/test_check_conventions.py
           python3 ci/bench/test_compare.py
+          python3 ci/test_junit_summary.py
 
       - name: Check test-file conventions
         run: |
@@ -92,6 +93,12 @@ jobs:
         uses: matlab-actions/run-command@v3
         with:
           command: addpath('ci/matlab'); runCITests();
+
+      # Renders junit.xml onto the run page. `always()` so results still show
+      # when the MATLAB step goes red -- which is exactly when you need them.
+      - name: Publish test results to the job summary
+        if: always()
+        run: python3 ci/junit_summary.py
 
       - name: Upload test results
         if: always()

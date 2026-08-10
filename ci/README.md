@@ -252,3 +252,29 @@ python3 ci/bench/test_compare.py            # 21 tests: tolerance + gate logic
 Both run in the `lint` job on every push. They found two real bugs during
 development: a crash on paths outside the repo, and a length guard that made
 the linter miss `'~/'` — the single most common bad path in this repo.
+
+---
+
+## Viewing test results
+
+`runCITests` writes `ci/results/junit.xml` (standards-compliant JUnit, from
+MATLAB's `XMLPlugin`) and `ci/results/summary.json`. Raw JUnit XML is not
+something anyone should have to read, so `ci/junit_summary.py` renders it.
+
+**In CI** — the "Publish test results to the job summary" step puts a table
+straight on the run page: totals, every non-passing test with its diagnostic
+in a collapsible block, and a per-file breakdown sorted worst-first. Nothing
+to download. It runs under `if: always()`, so results appear even when the
+MATLAB step goes red — which is when you need them most.
+
+**Locally**
+
+```bash
+python3 ci/junit_summary.py                    # ci/results/junit.xml
+python3 ci/junit_summary.py path/to/junit.xml  # any JUnit file
+python3 ci/junit_summary.py --markdown         # the CI rendering
+ci/run-local.sh tests                          # runs tests, then renders
+```
+
+The raw `junit.xml` and `summary.json` are still uploaded as the
+`matlab-test-results` artifact if you want to feed them to another tool.

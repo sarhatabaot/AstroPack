@@ -36,6 +36,7 @@ have_matlab() { command -v matlab >/dev/null 2>&1; }
 step "Test conventions lint"   python3 ci/lint/check_conventions.py
 step "Lint self-tests"         python3 ci/lint/test_check_conventions.py
 step "Comparator self-tests"   python3 ci/bench/test_compare.py
+step "JUnit renderer tests"    python3 ci/test_junit_summary.py
 
 # --- MATLAB unit tests ------------------------------------------------------
 if [[ "$MODE" == "tests" || "$MODE" == "all" ]]; then
@@ -45,6 +46,10 @@ if [[ "$MODE" == "tests" || "$MODE" == "all" ]]; then
     else
         hr "MATLAB green-tier tests"
         echo "[SKIP] matlab not on PATH."
+    fi
+    # Readable summary of whatever junit.xml exists, pass or fail.
+    if [[ -f ci/results/junit.xml ]]; then
+        python3 ci/junit_summary.py
     fi
 fi
 
