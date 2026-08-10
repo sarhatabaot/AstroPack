@@ -48,7 +48,9 @@ jobs:
           release: ${{ inputs.release }}
           # Keep in step with ci.yml, or triage will quarantine files that
           # only fail for want of a toolbox.
-          products: Symbolic_Math_Toolbox
+          products: >-
+            Symbolic_Math_Toolbox
+            Mapping_Toolbox
           cache: true
 
       - name: Triage every runnable test file

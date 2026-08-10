@@ -1,82 +1,256 @@
 {
   "_comment": "Test tiers for CI. 'green' is run on every push; when 'enforce' is true a failure blocks the build. 'quarantine' lists files excluded on purpose, each with the reason. Regenerate with: python3 ci/triage.py --promote",
-  "generated": "2026-08-09",
-  "_bootstrap_note": "Seeded with all 67 files that MATLAB can actually build into a suite (the other 219 test*.m files are legacy 'unitTest' functions that runtests never discovers). Nothing here has been verified to pass yet, so 'enforce' is false: the first CI run reports the true state. Move failures into 'quarantine' with a reason, then set 'enforce' to true.",
-  "enforce": false,
+  "generated": "2026-08-10",
+  "enforce": true,
   "green": [
-    "tests/astro/+celestial/+convert/test_apparent_toJ2000.m",
-    "tests/astro/+celestial/+convert/test_convert_ha.m",
     "tests/astro/+celestial/+convert/test_cooResolve.m",
-    "tests/astro/+celestial/+convert/test_j2000_toApparent.m",
     "tests/astro/+celestial/+convert/test_nutation.m",
     "tests/astro/+celestial/+convert/test_precessCoo.m",
     "tests/astro/+celestial/+convert/test_precession.m",
     "tests/astro/+celestial/+convert/test_refractedCoo.m",
     "tests/astro/+celestial/+coo/test_aberration.m",
     "tests/astro/+celestial/+coo/test_area_sphere_polygon.m",
-    "tests/astro/+celestial/+coo/test_convert_coo.m",
-    "tests/astro/+celestial/+coo/test_convertdms.m",
-    "tests/astro/+celestial/+coo/test_coo2box.m",
-    "tests/astro/+celestial/+coo/test_coo_resolver.m",
     "tests/astro/+celestial/+coo/test_cosined.m",
     "tests/astro/+celestial/+coo/test_cosined2coo.m",
-    "tests/astro/+celestial/+coo/test_proper_motion.m",
     "tests/astro/+celestial/+coo/test_radec2azalt.m",
-    "tests/astro/+celestial/+coo/test_refraction.m",
-    "tests/astro/+celestial/+coo/test_sky_area_above_am.m",
     "tests/astro/+celestial/+coo/test_sphere_dist.m",
     "tests/astro/+celestial/+coo/test_sphere_dist_cosd.m",
     "tests/astro/+celestial/+coo/test_sphere_dist_fast.m",
-    "tests/astro/+celestial/+coo/test_sphere_dist_fastSmall.m",
     "tests/astro/+celestial/+coo/test_sphere_dist_fastThresh.m",
     "tests/astro/+celestial/+coo/test_sphere_dist_fast_thresh.m",
-    "tests/astro/+celestial/+coo/test_sphere_dist_fast_threshDist.m",
-    "tests/astro/+celestial/+coo/test_sphere_dist_thresh.m",
-    "tests/astro/+celestial/+coo/test_sphere_move.m",
     "tests/astro/+celestial/+coo/test_sphere_offset.m",
-    "tests/astro/+celestial/+coo/test_spherical_tri_area.m",
-    "tests/astro/+celestial/+coo/test_spherical_triangle_circum_circle.m",
     "tests/astro/+celestial/+healpix/test_ang2pix.m",
     "tests/astro/+celestial/+healpix/test_coneSearch.m",
     "tests/astro/+celestial/+healpix/test_coneSearch2PixRanges.m",
-    "tests/astro/+celestial/+healpix/test_coneSearchRecur.m",
     "tests/astro/+celestial/+healpix/test_convertHealPix2highNsideNested.m",
     "tests/astro/+celestial/+healpix/test_convertHealPixNsideNested.m",
-    "tests/astro/+celestial/+healpix/test_findNeighbors.m",
-    "tests/astro/+celestial/+healpix/test_healpixVertices.m",
     "tests/astro/+celestial/+healpix/test_healpix_01.m",
     "tests/astro/+celestial/+healpix/test_latitudeRings.m",
-    "tests/astro/+celestial/+healpix/test_mexHealpix.m",
     "tests/astro/+celestial/+healpix/test_nPix.m",
     "tests/astro/+celestial/+healpix/test_nRing.m",
     "tests/astro/+celestial/+healpix/test_nest2xyf.m",
     "tests/astro/+celestial/+healpix/test_pix2ang.m",
     "tests/astro/+celestial/+healpix/test_pixBoundries.m",
-    "tests/astro/+celestial/+healpix/test_pixRadius.m",
     "tests/astro/+celestial/+healpix/test_pixelResolution.m",
     "tests/astro/+celestial/+healpix/test_pixelSons_nested.m",
     "tests/astro/+celestial/+healpix/test_plot.m",
     "tests/astro/+celestial/+healpix/test_radius2NSide.m",
     "tests/astro/+celestial/+healpix/test_rasterize_polygon.m",
     "tests/astro/+celestial/+healpix/test_uniqueId.m",
-    "tests/astro/+celestial/+time/test_barycentricJD.m",
-    "tests/astro/TestCelestialConvert.m",
-    "tests/astro/TestINPOP.m",
     "tests/astro/Test_ultrasat_slew_calc_processRequest.m",
     "tests/astro/catsHTM/test_add_remove_source.m",
-    "tests/astro/catsHTM/test_crossIDCatsHTM.m",
-    "tests/astro/catsHTM/test_renameCat.m",
-    "tests/base/TestBase.m",
-    "tests/base/TestLogFile.m",
-    "tests/util/+tools/+array/TestNan2Val.m",
-    "tests/util/+tools/+struct/TestStruct2KeyVal.m"
+    "tests/astro/catsHTM/test_renameCat.m"
   ],
   "quarantine": [
+    {
+      "file": "tests/astro/+celestial/+convert/test_apparent_toJ2000.m",
+      "status": "failed",
+      "since": "2026-08-10",
+      "counts": "4/4 error",
+      "reason": "Needs the INPOP ephemeris data (inpop21a_TDB_m100_p100_*_pos_*.mat), which Installer.install() fetches into $ASTROPACK_DATA_PATH. A hosted runner has no such data. Fix by caching the INPOP files in CI, or by running on a self-hosted runner that already has them."
+    },
+    {
+      "file": "tests/astro/+celestial/+convert/test_convert_ha.m",
+      "status": "failed",
+      "since": "2026-08-10",
+      "counts": "5/5 fail",
+      "reason": "All 5 cases are off by exactly 0.04 deg (2.4 arcmin; 6.98e-4 rad in the radian case), with a consistent relative error of -6.7178e-4. A constant offset that clean points at a changed convention or constant -- e.g. an observatory longitude -- rather than numerical drift. The gate is AbsTol 1e-6, so it cannot be tolerance noise. Needs an owner to decide whether the code or the expected values moved."
+    },
+    {
+      "file": "tests/astro/+celestial/+convert/test_j2000_toApparent.m",
+      "status": "failed",
+      "since": "2026-08-10",
+      "counts": "7/7 error",
+      "reason": "Needs the INPOP ephemeris data (inpop21a_TDB_m100_p100_*_pos_*.mat), which Installer.install() fetches into $ASTROPACK_DATA_PATH. A hosted runner has no such data. Fix by caching the INPOP files in CI, or by running on a self-hosted runner that already has them."
+    },
+    {
+      "file": "tests/astro/+celestial/+coo/test_convert_coo.m",
+      "status": "failed",
+      "since": "2026-08-10",
+      "counts": "5/5 error",
+      "reason": "setupOnce loads tests/relativeData/expected_*.mat via the hardcoded path ~/matlab/AstroPack/tests/relativeData/. THE FIXTURE IS COMMITTED IN THIS REPO -- only the path is wrong. A one-line fix per file recovers these tests."
+    },
+    {
+      "file": "tests/astro/+celestial/+coo/test_convertdms.m",
+      "status": "failed",
+      "since": "2026-08-10",
+      "counts": "11/11 error",
+      "reason": "setupOnce loads tests/relativeData/expected_*.mat via the hardcoded path ~/matlab/AstroPack/tests/relativeData/. THE FIXTURE IS COMMITTED IN THIS REPO -- only the path is wrong. A one-line fix per file recovers these tests."
+    },
+    {
+      "file": "tests/astro/+celestial/+coo/test_coo2box.m",
+      "status": "failed",
+      "since": "2026-08-10",
+      "counts": "4/4 error",
+      "reason": "setupOnce loads tests/relativeData/expected_*.mat via the hardcoded path ~/matlab/AstroPack/tests/relativeData/. THE FIXTURE IS COMMITTED IN THIS REPO -- only the path is wrong. A one-line fix per file recovers these tests."
+    },
+    {
+      "file": "tests/astro/+celestial/+coo/test_coo_resolver.m",
+      "status": "failed",
+      "since": "2026-08-10",
+      "counts": "7/7 error",
+      "reason": "setupOnce loads tests/relativeData/expected_*.mat via the hardcoded path ~/matlab/AstroPack/tests/relativeData/. THE FIXTURE IS COMMITTED IN THIS REPO -- only the path is wrong. A one-line fix per file recovers these tests."
+    },
+    {
+      "file": "tests/astro/+celestial/+coo/test_proper_motion.m",
+      "status": "failed",
+      "since": "2026-08-10",
+      "counts": "6/6 error",
+      "reason": "setupOnce loads tests/relativeData/expected_*.mat via the hardcoded path ~/matlab/AstroPack/tests/relativeData/. THE FIXTURE IS COMMITTED IN THIS REPO -- only the path is wrong. A one-line fix per file recovers these tests."
+    },
+    {
+      "file": "tests/astro/+celestial/+coo/test_refraction.m",
+      "status": "failed",
+      "since": "2026-08-10",
+      "counts": "6/6 error",
+      "reason": "setupOnce loads tests/relativeData/expected_*.mat via the hardcoded path ~/matlab/AstroPack/tests/relativeData/. THE FIXTURE IS COMMITTED IN THIS REPO -- only the path is wrong. A one-line fix per file recovers these tests."
+    },
+    {
+      "file": "tests/astro/+celestial/+coo/test_sky_area_above_am.m",
+      "status": "failed",
+      "since": "2026-08-10",
+      "counts": "5/5 fail",
+      "reason": "PRODUCT BUG: celestial.coo.sky_area_above_am returns NaN for nominal inputs, poles and high airmass -- 4 cases assert only non-negativity and still fail. The 5th is the hardcoded relativeData path. The NaN is a real defect, not an environment gap."
+    },
+    {
+      "file": "tests/astro/+celestial/+coo/test_sphere_dist_fastSmall.m",
+      "status": "failed",
+      "since": "2026-08-10",
+      "counts": "6/6 error",
+      "reason": "PRODUCT BUG: celestial.coo.sphere_dist_fastSmall line 13 is a literal error('BUG'). The function is unimplemented; every test calling it errors. Either finish it or delete both."
+    },
+    {
+      "file": "tests/astro/+celestial/+coo/test_sphere_dist_fast_threshDist.m",
+      "status": "failed",
+      "since": "2026-08-10",
+      "counts": "1/6 fail",
+      "reason": "Off-by-one: testLargeInputPerformance expects 1000000 rows and gets 999999. Either the function drops a row or the test's expected size is wrong."
+    },
+    {
+      "file": "tests/astro/+celestial/+coo/test_sphere_dist_thresh.m",
+      "status": "failed",
+      "since": "2026-08-10",
+      "counts": "1/6 error",
+      "reason": "Needs Mapping Toolbox (reckon), used by celestial.coo.sphere_dist_thresh. Mapping_Toolbox has now been added to products in ci.yml; re-run triage to promote this file once confirmed."
+    },
+    {
+      "file": "tests/astro/+celestial/+coo/test_sphere_move.m",
+      "status": "failed",
+      "since": "2026-08-10",
+      "counts": "2/2 error",
+      "reason": "Needs Mapping Toolbox (reckon), used by celestial.coo.sphere_dist_thresh. Mapping_Toolbox has now been added to products in ci.yml; re-run triage to promote this file once confirmed."
+    },
+    {
+      "file": "tests/astro/+celestial/+coo/test_spherical_tri_area.m",
+      "status": "failed",
+      "since": "2026-08-10",
+      "counts": "5/5 error",
+      "reason": "setupOnce loads tests/relativeData/expected_*.mat via the hardcoded path ~/matlab/AstroPack/tests/relativeData/. THE FIXTURE IS COMMITTED IN THIS REPO -- only the path is wrong. A one-line fix per file recovers these tests."
+    },
+    {
+      "file": "tests/astro/+celestial/+coo/test_spherical_triangle_circum_circle.m",
+      "status": "failed",
+      "since": "2026-08-10",
+      "counts": "1/1 error",
+      "reason": "setupOnce errors with 'Regression data file does not exist. Run the regression data generation script first.' The generator has never been run, so no fixture exists."
+    },
+    {
+      "file": "tests/astro/+celestial/+healpix/test_coneSearchRecur.m",
+      "status": "failed",
+      "since": "2026-08-10",
+      "counts": "1/4 fail",
+      "reason": "testCentersWithinExpandedRadius: 0.1083 exceeds the 0.0956 bound. Marginal -- likely a tolerance that was never calibrated."
+    },
+    {
+      "file": "tests/astro/+celestial/+healpix/test_findNeighbors.m",
+      "status": "failed",
+      "since": "2026-08-10",
+      "counts": "1/5 error",
+      "reason": "PRODUCT BUG: celestial.healpix.findNeighbors line 98 throws MATLAB:sub2ind:IndexOutOfRange for the negative-index case."
+    },
+    {
+      "file": "tests/astro/+celestial/+healpix/test_healpixVertices.m",
+      "status": "failed",
+      "since": "2026-08-10",
+      "counts": "1/4 fail",
+      "reason": "testVerticesNearPixelCenter: 8 vertex distances are ~2-3x the allowed bound (0.46-0.77 vs 0.227). Either the vertices are wrong or the tolerance is."
+    },
+    {
+      "file": "tests/astro/+celestial/+healpix/test_mexHealpix.m",
+      "status": "failed",
+      "since": "2026-08-10",
+      "counts": "1/7 error",
+      "reason": "TEST BUG: testRasterizePolygonMexSmoke calls rasterize_polygon(P0, 3); the MEX requires NSide to be a power of 2, so 3 is invalid input from the test itself."
+    },
+    {
+      "file": "tests/astro/+celestial/+healpix/test_pixRadius.m",
+      "status": "failed",
+      "since": "2026-08-10",
+      "counts": "1/3 fail",
+      "reason": "testMaxRadiusGeEqualAreaRadius fails at every NSide: maxRadius is consistently BELOW equalAreaRadius (0.5 vs 0.907, 0.25 vs 0.453, ...), a clean factor. Looks like an inverted or mis-scaled formula on one side."
+    },
+    {
+      "file": "tests/astro/+celestial/+time/test_barycentricJD.m",
+      "status": "failed",
+      "since": "2026-08-10",
+      "counts": "9/9 error",
+      "reason": "Needs the INPOP ephemeris data (inpop21a_TDB_m100_p100_*_pos_*.mat), which Installer.install() fetches into $ASTROPACK_DATA_PATH. A hosted runner has no such data. Fix by caching the INPOP files in CI, or by running on a self-hosted runner that already has them. One case also hits an Installer config error ('Unrecognized field name \"Installer\"')."
+    },
     {
       "file": "tests/astro/+ultrasat/+api/+clients/test_ScheduleManagerClient_getTargets_01.m",
       "status": "error",
       "since": "2026-08-09",
       "reason": "Requires a SOC deployment: ultrasat.api.core.Loggable errors with 'SOC_PATH env must be set'. A GitHub-hosted runner has no $SOC_PATH/config/services.json, so this can only run on a machine with the SOC tree (or a self-hosted runner)."
+    },
+    {
+      "file": "tests/astro/TestCelestialConvert.m",
+      "status": "failed",
+      "since": "2026-08-10",
+      "counts": "1/4 error",
+      "reason": "Needs the INPOP ephemeris data (inpop21a_TDB_m100_p100_*_pos_*.mat), which Installer.install() fetches into $ASTROPACK_DATA_PATH. A hosted runner has no such data. Fix by caching the INPOP files in CI, or by running on a self-hosted runner that already has them."
+    },
+    {
+      "file": "tests/astro/TestINPOP.m",
+      "status": "failed",
+      "since": "2026-08-10",
+      "counts": "6/6 fail",
+      "reason": "Needs the INPOP ephemeris data (inpop21a_TDB_m100_p100_*_pos_*.mat), which Installer.install() fetches into $ASTROPACK_DATA_PATH. A hosted runner has no such data. Fix by caching the INPOP files in CI, or by running on a self-hosted runner that already has them. This suite exists to exercise INPOP, so it cannot pass without the data."
+    },
+    {
+      "file": "tests/astro/catsHTM/test_crossIDCatsHTM.m",
+      "status": "failed",
+      "since": "2026-08-10",
+      "counts": "6/21 fail",
+      "reason": "Real cross-match logic failures: source counts 28 vs 12 and 18 vs 10, Nmatch 0 vs 2, KeepExtraMatches returning NaN, and XIDREF returned where XIDA was expected. Needs an owner who knows crossIDCatsHTM."
+    },
+    {
+      "file": "tests/base/TestBase.m",
+      "status": "failed",
+      "since": "2026-08-10",
+      "counts": "3/7 fail",
+      "reason": "@Base handle/value semantics: createNewObj and copy return objects that compare equal to the original, and isemptyProperty returns 1x2 where 2x1 is expected. Either @Base changed or these expectations were always wrong."
+    },
+    {
+      "file": "tests/base/TestLogFile.m",
+      "status": "failed",
+      "since": "2026-08-10",
+      "counts": "3/6 fail",
+      "reason": "TEST BUG: two cases call verifyContains(testCase, ...), which does not exist for FunctionTestCase -- the function-based API has no such method. The third expects MATLAB:badfid_mx but gets MATLAB:class:InvalidHandle."
+    },
+    {
+      "file": "tests/util/+tools/+array/TestNan2Val.m",
+      "status": "failed",
+      "since": "2026-08-10",
+      "counts": "1/2 fail",
+      "reason": "tools.array.nan2val leaves one NaN unreplaced at (2,3) under default arguments."
+    },
+    {
+      "file": "tests/util/+tools/+struct/TestStruct2KeyVal.m",
+      "status": "failed",
+      "since": "2026-08-10",
+      "counts": "1/6 fail",
+      "reason": "struct2keyval returns a 1x0 cell for an empty struct where the test expects 0x0. Cosmetic, but it is a real behaviour/expectation mismatch."
     }
-  ]
+  ],
+  "_status": "Verified against CI run #4 (367 tests: 244 passed, 111 failed, 12 skipped). Every green file passed or skipped cleanly there, so enforce is on. Quarantined files each carry the measured reason."
 }

@@ -86,7 +86,11 @@ jobs:
           # Add further toolboxes here as runs reveal them -- MathWorks
           # licenses them free for public repos, bar transformation products
           # (MATLAB Coder, Compiler).
-          products: Symbolic_Math_Toolbox
+          # Mapping Toolbox supplies reckon, called by celestial.coo.sphere_dist_thresh
+          # and assumed by several healpix tests (which skip without it).
+          products: >-
+            Symbolic_Math_Toolbox
+            Mapping_Toolbox
           cache: true
 
       - name: Run green-tier tests

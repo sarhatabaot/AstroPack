@@ -86,14 +86,26 @@ python3 ci/lint/check_conventions.py --update-baseline  # accept current state
 Runs the files listed under `green` in `ci/suite.json`, writes JUnit XML and a
 JSON summary to `ci/results/`.
 
-`ci/suite.json` ships with `"enforce": false` and all 67 discoverable files in
-the green tier. **Nothing has been verified to pass yet** — no MATLAB was
-available where this was built. So the first CI run *reports* the true state
-without blocking anyone. Then:
+`ci/suite.json` is now **enforcing**, calibrated against a real run
+(367 tests: 244 passed, 111 failed, 12 skipped):
 
-1. Read the run, or run `.github/workflows/triage.yml` for a per-file verdict.
-2. Move failures into `quarantine` with a reason.
-3. Set `"enforce": true`. From then on a green-tier failure blocks the merge.
+| Tier | Files | Meaning |
+|---|---:|---|
+| green | 37 | Passed or skipped cleanly. A failure here blocks the merge. |
+| quarantine | 30 | Excluded, each with the measured reason recorded. |
+
+The 111 failures are **not** 111 problems. They collapse into a handful:
+
+| Root cause | Tests | Files | Nature |
+|---|---:|---:|---|
+| Hardcoded `~/matlab/AstroPack/tests/relativeData/` | 45 | 8 | Fixture is committed here; only the path is wrong |
+| Missing INPOP ephemeris data | 27 | 5 | Needs `Installer.install()` data on the runner |
+| Missing Mapping Toolbox (`reckon`) | 3 | 2 | Now installed; re-triage to promote |
+| Never-generated regression fixture | 1 | 1 | Generator has never been run |
+| **Genuine code or test defects** | **35** | **13** | See the quarantine reasons |
+
+To promote a file out of quarantine: fix the cause, re-run
+`.github/workflows/triage.yml`, then move it to `green`.
 
 Triage runs each file in **its own MATLAB process** with a timeout, so a hang
 (a blocking network call, a prompt waiting on input) or a segfault isolates to
