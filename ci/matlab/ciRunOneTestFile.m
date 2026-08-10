@@ -43,7 +43,9 @@ function ciRunOneTestFile(RelPath, OutJson)
         Verdict.total           = numel(Results);
         Verdict.passed          = sum([Results.Passed]);
         Verdict.failed          = sum([Results.Failed]);
-        Verdict.skipped         = sum(strcmp({Results.Status}, 'Skipped'));
+        % No 'Status' property on TestResult: assumption-filtered tests are
+        % Incomplete without being Failed.
+        Verdict.skipped         = sum([Results.Incomplete] & ~[Results.Failed]);
         Verdict.durationSeconds = sum([Results.Duration]);
 
         if Verdict.failed > 0

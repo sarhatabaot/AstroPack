@@ -60,7 +60,6 @@
     "tests/astro/+celestial/+healpix/test_rasterize_polygon.m",
     "tests/astro/+celestial/+healpix/test_uniqueId.m",
     "tests/astro/+celestial/+time/test_barycentricJD.m",
-    "tests/astro/+ultrasat/+api/+clients/test_ScheduleManagerClient_getTargets_01.m",
     "tests/astro/TestCelestialConvert.m",
     "tests/astro/TestINPOP.m",
     "tests/astro/Test_ultrasat_slew_calc_processRequest.m",
@@ -72,5 +71,12 @@
     "tests/util/+tools/+array/TestNan2Val.m",
     "tests/util/+tools/+struct/TestStruct2KeyVal.m"
   ],
-  "quarantine": []
+  "quarantine": [
+    {
+      "file": "tests/astro/+ultrasat/+api/+clients/test_ScheduleManagerClient_getTargets_01.m",
+      "status": "error",
+      "since": "2026-08-09",
+      "reason": "Requires a SOC deployment: ultrasat.api.core.Loggable errors with 'SOC_PATH env must be set'. A GitHub-hosted runner has no $SOC_PATH/config/services.json, so this can only run on a machine with the SOC tree (or a self-hosted runner)."
+    }
+  ]
 }

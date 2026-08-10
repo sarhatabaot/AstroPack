@@ -78,6 +78,14 @@ jobs:
         uses: matlab-actions/setup-matlab@v3
         with:
           release: ${{ env.MATLAB_RELEASE }}
+          # Symbolic Math Toolbox is a real library dependency, not a test
+          # artifact: 15 files under matlab/ use sym/vpa, including @Tran2D
+          # and tools.math.fun.chebyshevFun. Without it, celestial.time
+          # tests die on "Undefined function 'sym'".
+          # Add further toolboxes here as runs reveal them -- MathWorks
+          # licenses them free for public repos, bar transformation products
+          # (MATLAB Coder, Compiler).
+          products: Symbolic_Math_Toolbox
           cache: true
 
       - name: Run green-tier tests

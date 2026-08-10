@@ -197,7 +197,10 @@ function S = summarize(Results, BuildErrors)
     S.total       = numel(Results);
     S.passed      = sum([Results.Passed]);
     S.failed      = sum([Results.Failed]);
-    S.skipped     = sum(strcmp({Results.Status}, 'Skipped'));
+    % TestResult has no 'Status' property -- only Passed/Failed/Incomplete.
+    % A test filtered by assumeTrue is Incomplete but not Failed; a test that
+    % errored is both. So "skipped" is Incomplete minus the failures.
+    S.skipped     = sum([Results.Incomplete] & ~[Results.Failed]);
     S.buildErrors = numel(BuildErrors);
     if isempty(Results)
         S.durationSeconds = 0;

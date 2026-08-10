@@ -46,6 +46,9 @@ jobs:
         uses: matlab-actions/setup-matlab@v3
         with:
           release: ${{ inputs.release }}
+          # Keep in step with ci.yml, or triage will quarantine files that
+          # only fail for want of a toolbox.
+          products: Symbolic_Math_Toolbox
           cache: true
 
       - name: Triage every runnable test file
