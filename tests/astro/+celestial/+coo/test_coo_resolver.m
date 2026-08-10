@@ -15,7 +15,7 @@ end
 
 function setupOnce(testCase)
     % Load expected results from file only once for all tests
-    dataFilePath = fullfile('~/','matlab','AstroPack','tests', 'relativeData', 'expected_coo_resolver_results.mat');
+    dataFilePath = CooTestHelper.dataFile('expected_coo_resolver_results.mat');
     testData = load(dataFilePath);
     testCase.TestData.expectedResults = testData.expectedResults;
 end

@@ -9,8 +9,8 @@ function tests = test_sky_area_above_am
     % under different inputs, including varying Julian Dates, latitudes, 
     % airmass thresholds, and visibility times. testRegressionCase, loads
     % saved results from 18-10-24 (in
-    % ~/matlab/AstroPack/tests/relativeData/expected_<function
-    % name>_results.mat)
+    % tests/relativeData/expected_<function name>_results.mat, resolved via
+    % CooTestHelper.dataFile)
     %
     % Inputs Tested:
     %   - JD (Julian Date)
@@ -116,7 +116,7 @@ function testRegressionCase(testCase)
     % function don't alter its behavior unexpectedly.
 
     % Path to the 'expected_sky_area_results.mat' file (relative to the current working directory)
-    dataFilePath = fullfile('~/','matlab','AstroPack','tests', 'relativeData', 'expected_sky_area_above_am_results.mat');
+    dataFilePath = CooTestHelper.dataFile('expected_sky_area_above_am_results.mat');
     
     % Load the expected results
     loadedData = load(dataFilePath);

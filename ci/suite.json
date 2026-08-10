@@ -68,49 +68,49 @@
       "status": "failed",
       "since": "2026-08-10",
       "counts": "5/5 error",
-      "reason": "setupOnce loads tests/relativeData/expected_*.mat via the hardcoded path ~/matlab/AstroPack/tests/relativeData/. THE FIXTURE IS COMMITTED IN THIS REPO -- only the path is wrong. A one-line fix per file recovers these tests."
+      "reason": "PATH FIXED 2026-08-10 (see ci/applied-fixes.md): now resolves via CooTestHelper.dataFile. The load error is gone, but the assertions themselves have never run, so this stays quarantined until a triage run confirms them. Previously: setupOnce loads tests/relativeData/expected_*.mat via the hardcoded path ~/matlab/AstroPack/tests/relativeData/. THE FIXTURE IS COMMITTED IN THIS REPO -- only the path is wrong. A one-line fix per file recovers these tests."
     },
     {
       "file": "tests/astro/+celestial/+coo/test_convertdms.m",
       "status": "failed",
       "since": "2026-08-10",
       "counts": "11/11 error",
-      "reason": "setupOnce loads tests/relativeData/expected_*.mat via the hardcoded path ~/matlab/AstroPack/tests/relativeData/. THE FIXTURE IS COMMITTED IN THIS REPO -- only the path is wrong. A one-line fix per file recovers these tests."
+      "reason": "PATH FIXED 2026-08-10 (see ci/applied-fixes.md): now resolves via CooTestHelper.dataFile. The load error is gone, but the assertions themselves have never run, so this stays quarantined until a triage run confirms them. Previously: setupOnce loads tests/relativeData/expected_*.mat via the hardcoded path ~/matlab/AstroPack/tests/relativeData/. THE FIXTURE IS COMMITTED IN THIS REPO -- only the path is wrong. A one-line fix per file recovers these tests."
     },
     {
       "file": "tests/astro/+celestial/+coo/test_coo2box.m",
       "status": "failed",
       "since": "2026-08-10",
       "counts": "4/4 error",
-      "reason": "setupOnce loads tests/relativeData/expected_*.mat via the hardcoded path ~/matlab/AstroPack/tests/relativeData/. THE FIXTURE IS COMMITTED IN THIS REPO -- only the path is wrong. A one-line fix per file recovers these tests."
+      "reason": "PATH FIXED 2026-08-10 (see ci/applied-fixes.md): now resolves via CooTestHelper.dataFile. The load error is gone, but the assertions themselves have never run, so this stays quarantined until a triage run confirms them. Previously: setupOnce loads tests/relativeData/expected_*.mat via the hardcoded path ~/matlab/AstroPack/tests/relativeData/. THE FIXTURE IS COMMITTED IN THIS REPO -- only the path is wrong. A one-line fix per file recovers these tests."
     },
     {
       "file": "tests/astro/+celestial/+coo/test_coo_resolver.m",
       "status": "failed",
       "since": "2026-08-10",
       "counts": "7/7 error",
-      "reason": "setupOnce loads tests/relativeData/expected_*.mat via the hardcoded path ~/matlab/AstroPack/tests/relativeData/. THE FIXTURE IS COMMITTED IN THIS REPO -- only the path is wrong. A one-line fix per file recovers these tests."
+      "reason": "PATH FIXED 2026-08-10 (see ci/applied-fixes.md): now resolves via CooTestHelper.dataFile. The load error is gone, but the assertions themselves have never run, so this stays quarantined until a triage run confirms them. Previously: setupOnce loads tests/relativeData/expected_*.mat via the hardcoded path ~/matlab/AstroPack/tests/relativeData/. THE FIXTURE IS COMMITTED IN THIS REPO -- only the path is wrong. A one-line fix per file recovers these tests."
     },
     {
       "file": "tests/astro/+celestial/+coo/test_proper_motion.m",
       "status": "failed",
       "since": "2026-08-10",
       "counts": "6/6 error",
-      "reason": "setupOnce loads tests/relativeData/expected_*.mat via the hardcoded path ~/matlab/AstroPack/tests/relativeData/. THE FIXTURE IS COMMITTED IN THIS REPO -- only the path is wrong. A one-line fix per file recovers these tests."
+      "reason": "PATH FIXED 2026-08-10 (see ci/applied-fixes.md): now resolves via CooTestHelper.dataFile. The load error is gone, but the assertions themselves have never run, so this stays quarantined until a triage run confirms them. Previously: setupOnce loads tests/relativeData/expected_*.mat via the hardcoded path ~/matlab/AstroPack/tests/relativeData/. THE FIXTURE IS COMMITTED IN THIS REPO -- only the path is wrong. A one-line fix per file recovers these tests."
     },
     {
       "file": "tests/astro/+celestial/+coo/test_refraction.m",
       "status": "failed",
       "since": "2026-08-10",
       "counts": "6/6 error",
-      "reason": "setupOnce loads tests/relativeData/expected_*.mat via the hardcoded path ~/matlab/AstroPack/tests/relativeData/. THE FIXTURE IS COMMITTED IN THIS REPO -- only the path is wrong. A one-line fix per file recovers these tests."
+      "reason": "PATH FIXED 2026-08-10 (see ci/applied-fixes.md): now resolves via CooTestHelper.dataFile. The load error is gone, but the assertions themselves have never run, so this stays quarantined until a triage run confirms them. Previously: setupOnce loads tests/relativeData/expected_*.mat via the hardcoded path ~/matlab/AstroPack/tests/relativeData/. THE FIXTURE IS COMMITTED IN THIS REPO -- only the path is wrong. A one-line fix per file recovers these tests."
     },
     {
       "file": "tests/astro/+celestial/+coo/test_sky_area_above_am.m",
       "status": "failed",
       "since": "2026-08-10",
       "counts": "5/5 fail",
-      "reason": "PRODUCT BUG: celestial.coo.sky_area_above_am returns NaN for nominal inputs, poles and high airmass -- 4 cases assert only non-negativity and still fail. The 5th is the hardcoded relativeData path. The NaN is a real defect, not an environment gap."
+      "reason": "PARTIALLY FIXED 2026-08-10 (see ci/applied-fixes.md): the testRegressionCase path now resolves via CooTestHelper. The other 4 cases remain a PRODUCT BUG -- celestial.coo.sky_area_above_am returns NaN for nominal inputs, both poles and high airmass, failing assertions that only require non-negativity. Stays quarantined on that alone."
     },
     {
       "file": "tests/astro/+celestial/+coo/test_sphere_dist_fastSmall.m",
@@ -145,14 +145,14 @@
       "status": "failed",
       "since": "2026-08-10",
       "counts": "5/5 error",
-      "reason": "setupOnce loads tests/relativeData/expected_*.mat via the hardcoded path ~/matlab/AstroPack/tests/relativeData/. THE FIXTURE IS COMMITTED IN THIS REPO -- only the path is wrong. A one-line fix per file recovers these tests."
+      "reason": "PATH FIXED 2026-08-10 (see ci/applied-fixes.md): now resolves via CooTestHelper.dataFile. The load error is gone, but the assertions themselves have never run, so this stays quarantined until a triage run confirms them. Previously: setupOnce loads tests/relativeData/expected_*.mat via the hardcoded path ~/matlab/AstroPack/tests/relativeData/. THE FIXTURE IS COMMITTED IN THIS REPO -- only the path is wrong. A one-line fix per file recovers these tests."
     },
     {
       "file": "tests/astro/+celestial/+coo/test_spherical_triangle_circum_circle.m",
       "status": "failed",
       "since": "2026-08-10",
       "counts": "1/1 error",
-      "reason": "setupOnce errors with 'Regression data file does not exist. Run the regression data generation script first.' The generator has never been run, so no fixture exists."
+      "reason": "PATH FIXED 2026-08-10 (see ci/applied-fixes.md): now resolves via CooTestHelper.dataFile. The load error is gone, but the assertions themselves have never run, so this stays quarantined until a triage run confirms them. Previously: setupOnce errors with 'Regression data file does not exist. Run the regression data generation script first.' The generator has never been run, so no fixture exists."
     },
     {
       "file": "tests/astro/+celestial/+healpix/test_coneSearchRecur.m",

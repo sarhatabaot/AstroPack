@@ -20,7 +20,7 @@ function setupOnce(testCase)
     testCase.TestData.Coo3 = [pi/4, pi/2];         % Example coordinates
 
     % Load expected results for regression testing
-    dataFilePath = fullfile('~/','matlab','AstroPack','tests', 'relativeData', 'expected_spherical_tri_area_results.mat');;
+    dataFilePath = CooTestHelper.dataFile('expected_spherical_tri_area_results.mat');
     testCase.TestData.ExpectedResults = load(dataFilePath);
 end
 

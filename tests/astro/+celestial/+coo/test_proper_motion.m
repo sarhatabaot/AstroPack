@@ -15,7 +15,7 @@ end
 %% Set up function to load data before running tests
 function setupOnce(testCase)
     % Load data from CSV file into testCase properties
-    data = readtable(  fullfile('~/','matlab','AstroPack','tests', 'relativeData', 'expected_proper_motion_results.csv'));
+    data = readtable(CooTestHelper.dataFile('expected_proper_motion_results.csv'));
     testCase.TestData.sources = data;
 end
 

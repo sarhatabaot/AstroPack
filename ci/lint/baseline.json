@@ -254,12 +254,6 @@
       "message": "Primary function is 'test_area_sphere_polygon' but the file is 'test_area_sphere_polygon1.m'. MATLAB discovers tests by filename, so this file is skipped."
     },
     {
-      "file": "tests/astro/+celestial/+coo/test_coo2box.m",
-      "rule": "abs-path",
-      "key": "~/",
-      "message": "Hardcoded absolute path '~/'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
-    },
-    {
       "file": "tests/astro/+celestial/+coo/test_coo_01.m",
       "rule": "name-mismatch",
       "key": "unitTest",
@@ -270,42 +264,6 @@
       "rule": "no-suite",
       "key": "",
       "message": "Test file never calls functiontests(localfunctions); it contributes no tests to the suite."
-    },
-    {
-      "file": "tests/astro/+celestial/+coo/test_coo_resolver.m",
-      "rule": "abs-path",
-      "key": "~/",
-      "message": "Hardcoded absolute path '~/'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
-    },
-    {
-      "file": "tests/astro/+celestial/+coo/test_proper_motion.m",
-      "rule": "abs-path",
-      "key": "~/",
-      "message": "Hardcoded absolute path '~/'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
-    },
-    {
-      "file": "tests/astro/+celestial/+coo/test_refraction.m",
-      "rule": "abs-path",
-      "key": "~/",
-      "message": "Hardcoded absolute path '~/'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
-    },
-    {
-      "file": "tests/astro/+celestial/+coo/test_sky_area_above_am.m",
-      "rule": "abs-path",
-      "key": "~/",
-      "message": "Hardcoded absolute path '~/'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
-    },
-    {
-      "file": "tests/astro/+celestial/+coo/test_spherical_tri_area.m",
-      "rule": "abs-path",
-      "key": "~/",
-      "message": "Hardcoded absolute path '~/'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
-    },
-    {
-      "file": "tests/astro/+celestial/+coo/test_spherical_triangle_circum_circle.m",
-      "rule": "abs-path",
-      "key": "~/",
-      "message": "Hardcoded absolute path '~/'. Use a path derived from mfilename('fullpath'), @Configuration, or an environment variable."
     },
     {
       "file": "tests/astro/+celestial/+earth/test_earth_01.m",

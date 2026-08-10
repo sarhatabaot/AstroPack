@@ -20,13 +20,10 @@ function setupOnce(testCase)
     testCase.TestData.angles = {[pi/2, pi/2, pi], [pi/3, pi/4, pi/2], [pi/2, pi/4, pi/2]}; % Updated angles
     testCase.TestData.vertices = [0, 0, pi/3, 0, pi/3, pi/3];  % Equilateral triangle at vertices
 
-    % Load regression data (assumes the .mat file exists)
-    dataFilePath = fullfile('~/','matlab','AstroPack','tests', 'relativeData', 'expected_spherical_triangle_circum_circle_results.mat');
-    if exist(dataFilePath, 'file')
-        testCase.TestData.ExpectedResults = load(dataFilePath);
-    else
-        error('Regression data file does not exist. Run the regression data generation script first.');
-    end
+    % Load regression data. CooTestHelper errors with a clear message when the
+    % committed fixture is missing, so no existence check is needed here.
+    testCase.TestData.ExpectedResults = CooTestHelper.loadData( ...
+        'expected_spherical_triangle_circum_circle_results.mat');
 end
 
 function teardownOnce(~)

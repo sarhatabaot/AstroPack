@@ -68,6 +68,12 @@ class TestAbsolutePathDetection(unittest.TestCase):
                   "/home/eran/matlab", "/mnt/euclid/catsHTM", r"\\server\share"]:
             self.assertTrue(is_absolute_path_literal(p), p)
 
+    def test_flags_a_bare_tilde_segment(self):
+        # fullfile('~','matlab',...) is the same bug as fullfile('~/',...)
+        # but has no separator, and an earlier version of the rule missed it.
+        self.assertTrue(is_absolute_path_literal("~"))
+        self.assertTrue(is_absolute_path_literal(" ~ "))
+
     def test_ignores_relative_paths_urls_and_format_strings(self):
         for p in ["tests/relativeData", "../data", "http://example.com/a/b",
                   "%d items\n", "/", "", "a", "*.fits", "/n"]:

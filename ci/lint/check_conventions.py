@@ -91,7 +91,9 @@ def is_absolute_path_literal(value: str) -> bool:
         return False
     # '~/' on its own is the single most common offender in this repo
     # (fullfile('~/','matlab','AstroPack',...)), so it must match at len 2.
-    if _HOME_RE.match(v):
+    # A bare '~' counts too: fullfile('~','matlab',...) is the same bug, and
+    # slipped past an earlier version of this rule that required a separator.
+    if _HOME_RE.match(v) or v == "~":
         return True
     if len(v) < 3:
         return False

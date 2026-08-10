@@ -13,6 +13,10 @@ Two independent systems, answering two different questions.
 A unit test tells you `fitPhotCalibTrans` did not throw. It does not tell you
 the zero-point scatter doubled. That is the gap the second system fills.
 
+> **[applied-fixes.md](applied-fixes.md)** — changes made outside `ci/` as a
+> result of CI findings. `suite.json` records what is *excluded* and why; that
+> file records what was *repaired*.
+
 ---
 
 ## What you need to know first
