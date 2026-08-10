@@ -37,6 +37,7 @@ step "Test conventions lint"   python3 ci/lint/check_conventions.py
 step "Lint self-tests"         python3 ci/lint/test_check_conventions.py
 step "Comparator self-tests"   python3 ci/bench/test_compare.py
 step "JUnit renderer tests"    python3 ci/test_junit_summary.py
+step "Secret-summary tests"    python3 ci/test_gitleaks_summary.py
 
 # --- MATLAB unit tests ------------------------------------------------------
 if [[ "$MODE" == "tests" || "$MODE" == "all" ]]; then

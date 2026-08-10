@@ -55,6 +55,7 @@ jobs:
           python3 ci/lint/test_check_conventions.py
           python3 ci/bench/test_compare.py
           python3 ci/test_junit_summary.py
+          python3 ci/test_gitleaks_summary.py
 
       - name: Check test-file conventions
         run: |

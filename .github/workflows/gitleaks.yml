@@ -1,0 +1,121 @@
+name: Secret scan
+
+# Gitleaks, in two modes.
+#
+#   scan     every push and PR -- new commits only, so it is fast and any
+#            finding is something this change introduced. Blocks the merge.
+#   history  manual or weekly -- the whole history across every ref. Slow,
+#            and reports pre-existing exposure rather than new mistakes.
+#
+# SAFETY: this repository is PUBLIC, and a gitleaks report contains the secrets
+# it found. Publishing one as a workflow artifact would hand them to anyone who
+# opens the run page. So every invocation passes --redact, no report is ever
+# uploaded as an artifact, and the job summary is rendered by a script that
+# emits only rule / file / line / commit -- never the matched value.
+#
+# The binary is fetched from the pinned upstream release and checked, rather
+# than using a third-party action: one less thing with a token in this repo,
+# and it sidesteps gitleaks-action's organisation licence requirement.
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+    branches: [dev1, main]
+  schedule:
+    - cron: '0 4 * * 1'   # Mondays 04:00 UTC
+  workflow_dispatch:
+    inputs:
+      full_history:
+        description: 'Scan the entire history across all refs'
+        type: boolean
+        default: true
+
+env:
+  GITLEAKS_VERSION: '8.30.1'
+
+jobs:
+  scan:
+    name: New commits
+    if: github.event_name == 'push' || github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # gitleaks needs history to resolve the commit range
+
+      - name: Install gitleaks
+        run: |
+          curl -sSfL -o /tmp/gitleaks.tar.gz \
+            "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz"
+          tar -xzf /tmp/gitleaks.tar.gz -C /tmp gitleaks
+          sudo install /tmp/gitleaks /usr/local/bin/gitleaks
+          gitleaks version
+
+      # Only the commits this event actually introduced. On a PR that is
+      # base..head; on a push it is before..after, with a fallback for the
+      # first push of a new branch (before is all zeroes there).
+      - name: Resolve commit range
+        id: range
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            RANGE="${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }}"
+          elif [ "${{ github.event.before }}" = "0000000000000000000000000000000000000000" ] || \
+               ! git cat-file -e "${{ github.event.before }}^{commit}" 2>/dev/null; then
+            RANGE="${{ github.sha }}~1..${{ github.sha }}"
+          else
+            RANGE="${{ github.event.before }}..${{ github.sha }}"
+          fi
+          echo "range=$RANGE" >> "$GITHUB_OUTPUT"
+          echo "Scanning $RANGE"
+
+      - name: Scan new commits
+        run: |
+          gitleaks git . \
+            --redact \
+            --config .gitleaks.toml \
+            --log-opts="${{ steps.range.outputs.range }}" \
+            --report-format json \
+            --report-path /tmp/gitleaks.json \
+            --exit-code 0 \
+            --no-banner
+          python3 ci/gitleaks_summary.py /tmp/gitleaks.json --fail-on-finding
+
+  history:
+    name: Full history
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fetch every ref
+        run: |
+          git fetch --all --tags --prune --quiet
+          echo "refs: $(git for-each-ref --format='%(refname)' | wc -l)"
+
+      - name: Install gitleaks
+        run: |
+          curl -sSfL -o /tmp/gitleaks.tar.gz \
+            "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz"
+          tar -xzf /tmp/gitleaks.tar.gz -C /tmp gitleaks
+          sudo install /tmp/gitleaks /usr/local/bin/gitleaks
+          gitleaks version
+
+      - name: Scan all history
+        run: |
+          gitleaks git . \
+            --redact \
+            --config .gitleaks.toml \
+            --log-opts="--all" \
+            --report-format json \
+            --report-path /tmp/gitleaks.json \
+            --exit-code 0 \
+            --no-banner
+          # Reports exposure rather than gating: history findings are already
+          # public, so failing this job every week teaches people to ignore it.
+          # Rotate the credential, then allowlist the commit in .gitleaks.toml.
+          python3 ci/gitleaks_summary.py /tmp/gitleaks.json

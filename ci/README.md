@@ -294,3 +294,61 @@ ci/run-local.sh tests                          # runs tests, then renders
 
 The raw `junit.xml` and `summary.json` are still uploaded as the
 `matlab-test-results` artifact if you want to feed them to another tool.
+
+---
+
+## Secret scanning
+
+`.github/workflows/gitleaks.yml` runs [gitleaks](https://github.com/gitleaks/gitleaks)
+(pinned, fetched from the upstream release) in two modes:
+
+| Mode | Trigger | Scope | Gates? |
+|---|---|---|---|
+| `scan` | push, PR | only the commits the event introduced | **yes** — blocks the merge |
+| `history` | weekly + manual | all commits, all refs | no — reports exposure |
+
+The history job deliberately does not gate. Its findings are already public, so
+failing every Monday would just train people to ignore it.
+
+### Publishing safely
+
+This repository is public, and **a gitleaks report contains the secrets it
+found**. Uploading one as a workflow artifact would hand every finding to
+anyone who opens the run page — turning a protective scan into a second
+disclosure. So:
+
+- every invocation passes `--redact`;
+- no report is ever uploaded as an artifact;
+- the job summary is rendered by `ci/gitleaks_summary.py`, which works from an
+  **allowlist** of publishable fields (rule, file, line, commit, date, author)
+  and can never emit `Secret`, `Match`, `Email`, or the commit message — not
+  even if a future gitleaks version adds a new field carrying one.
+
+`ci/test_gitleaks_summary.py` proves that with a canary secret pushed through
+every rendering path.
+
+### Config
+
+`.gitleaks.toml` extends the default rules and allowlists only provable noise —
+vendored `matlab/external/`, binary fixtures, and Lazarus `.lfm` form
+resources, whose embedded base64 bitmaps accounted for 25 of 53 raw history
+findings.
+
+**Allowlisting policy:** an entry asserts "this is not a secret", or "this was
+a secret, it has been rotated, and the historical hit is now noise". Never
+allowlist a live credential to quiet the scan — rotate it first.
+
+### Running it locally
+
+```bash
+curl -sSfL -o /tmp/gl.tar.gz \
+  https://github.com/gitleaks/gitleaks/releases/download/v8.30.1/gitleaks_8.30.1_linux_x64.tar.gz
+tar -xzf /tmp/gl.tar.gz -C /tmp gitleaks
+
+/tmp/gitleaks git . --config .gitleaks.toml --redact --log-opts="--all" \
+  --report-format json --report-path /tmp/gl.json --exit-code 0
+python3 ci/gitleaks_summary.py /tmp/gl.json
+```
+
+Drop `--redact` only on a trusted machine, and never commit or upload the
+resulting report.

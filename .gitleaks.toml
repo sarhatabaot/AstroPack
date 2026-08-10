@@ -1,0 +1,70 @@
+# Gitleaks configuration for AstroPack.
+#
+# Used by .github/workflows/gitleaks.yml and by any local run:
+#   gitleaks git . --config .gitleaks.toml --log-opts="--all" --redact
+#
+# Allowlisting policy: an entry here asserts "this is not a secret", or "this
+# was a secret, it has been rotated, and the historical hit is now noise".
+# Never allowlist a live credential to quiet the scan -- rotate it first. The
+# history job does not gate the build precisely so that nobody is tempted to.
+
+title = "AstroPack secret scan"
+
+[extend]
+useDefault = true
+
+# --- global allowlists ------------------------------------------------------
+
+[[allowlists]]
+description = """
+Third-party code vendored under matlab/external/ and matlab/obsolete/. Both are
+read-only by repository convention (see CLAUDE.md), so a finding there is not
+actionable by this project, and the sample keys inside test suites of vendored
+libraries are a steady source of noise.
+"""
+paths = [
+    '''^matlab/external/''',
+    '''^matlab/obsolete/''',
+]
+
+[[allowlists]]
+description = """
+Binary and image fixtures. High-entropy by nature, so generic entropy rules fire
+on them constantly, and a real credential would not be stored this way.
+"""
+paths = [
+    '''\.(fits?|fit|hdf5|h5|mat|png|jpe?g|gif|pdf|7z|zip|tar\.gz|mexa64|mexw64)$''',
+]
+
+[[allowlists]]
+description = """
+Lazarus form resources (.lfm). These embed toolbar and icon bitmaps as base64,
+which the square-access-token rule matches on shape alone. Measured: 25 of the
+53 history findings came from .lfm files and every one was image data, so
+leaving them in drowns the real hits.
+"""
+paths = [
+    '''\.lfm(\.bak)?$''',
+]
+
+[[allowlists]]
+description = """
+python/src/util/ddns/pydynu/api.key -- verified empty (0 bytes) at the commit
+that added it, b5ce2a7c4. The filename matches the generic key-file rule but
+there has never been any content. Deleted from HEAD; retained here so the
+history scan stays quiet about a known non-issue.
+"""
+paths = [
+    '''^python/src/util/ddns/pydynu/api\.key$''',
+]
+
+# --- NOT allowlisted, on purpose --------------------------------------------
+#
+# aws/admin/KeyPair1.pem, added 2021-05-09 in commit 30dbc9363, is a real
+# 1674-byte RSA private key. It was deleted from HEAD later (7c2d02659) but
+# remains reachable from ~80 refs on both the public upstream and this fork, so
+# it is retrievable by anyone who clones.
+#
+# It is deliberately left un-allowlisted so the weekly history scan keeps
+# reporting it until someone confirms the key pair has been revoked in AWS.
+# Once rotated, add it here with the rotation date and who did it.
