@@ -97,14 +97,15 @@ def render_markdown(findings: list[dict]) -> str:
         "",
         "### If these are real",
         "",
-        "1. **Rotate the credential first.** A secret in a public history must "
-        "be treated as compromised from the moment it was pushed; removing it "
-        "afterwards does not un-publish it.",
-        "2. Check the provider's audit log for use.",
-        "3. Only then consider rewriting history, and note that forks and "
-        "caches may retain it regardless.",
-        "4. Allowlist the commit in `.gitleaks.toml` once handled, so the scan "
-        "stays actionable.",
+        "1. **Rotate the credential.** A secret in a public history is "
+        "compromised from the moment it was pushed; deleting it afterwards "
+        "does not un-publish it.",
+        "2. Check the provider's audit log for use of the old value.",
+        "3. **This project does not scrub history** — rewriting refs cannot "
+        "reach forks, clones or caches, so rotation is the remedy and the "
+        "history entry becomes a record of a credential that no longer works.",
+        "4. Retire the finding in the `.gitleaks.toml` rotation ledger, with "
+        "the date and who did it, so the scan stays actionable.",
         "",
     ]
     return "\n".join(lines) + "\n"

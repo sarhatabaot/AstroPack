@@ -99,8 +99,11 @@ class TestRendering(unittest.TestCase):
         self.assertIn("(unknown-file)", md)
 
     def test_rotation_guidance_is_present(self):
-        self.assertIn("Rotate the credential first",
-                      render_markdown([safe_view(FINDING)]))
+        # Rotation is this project's remedy; scrubbing history is explicitly
+        # not, so both halves of that stance must reach the reader.
+        md = render_markdown([safe_view(FINDING)])
+        self.assertIn("Rotate the credential", md)
+        self.assertIn("does not scrub history", md)
 
 
 class TestCli(unittest.TestCase):

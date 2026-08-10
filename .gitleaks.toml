@@ -58,13 +58,113 @@ paths = [
     '''^python/src/util/ddns/pydynu/api\.key$''',
 ]
 
-# --- NOT allowlisted, on purpose --------------------------------------------
+# --- triaged 2026-08-10, confirmed not secrets ------------------------------
 #
-# aws/admin/KeyPair1.pem, added 2021-05-09 in commit 30dbc9363, is a real
-# 1674-byte RSA private key. It was deleted from HEAD later (7c2d02659) but
-# remains reachable from ~80 refs on both the public upstream and this fork, so
-# it is retrievable by anyone who clones.
+# Each entry below is scoped to a rule as well as a path, so these files stay
+# under scrutiny for every OTHER rule. A future real credential in them still
+# fires; only the specific known-benign pattern is silenced.
+
+[[allowlists]]
+description = """
+AstroWCS keyword strings. wcs2keyCell builds FITS WCS header cards, and the
+generic-api-key rule matches their shape. Reviewed and confirmed not a
+credential. Covers the current class, the pre-package copy, and the generated
+markdown docs.
+"""
+targetRules = ["generic-api-key"]
+paths = [
+    '''AstroWCS\.m$''',
+    '''AstroWCS\.md$''',
+]
+
+[[allowlists]]
+description = """
+@WebServer usage comment: a `curl "http://localhost:8080/echo?..."` example.
+The curl-auth-user rule fires on the URL shape. Reviewed and confirmed not a
+credential.
+"""
+targetRules = ["curl-auth-user"]
+paths = [
+    '''matlab/util/\+tools/@WebServer/WebServer\.m$''',
+]
+
+[[allowlists]]
+description = """
+ULTRASAT SOC api-key values in API documentation and debug scripts.
+
+Triaged 2026-08-10 by the repository owner and marked not an issue. Recorded
+here rather than left firing so the scan stays actionable -- but note the
+value is a live-looking SOC_API_KEY and appears in three places, so if that
+determination ever changes, these are the paths to revisit.
+"""
+targetRules = ["generic-api-key", "curl-auth-header"]
+paths = [
+    '''matlab/astro/\+ultrasat/\+api/docs/.*\.md$''',
+    '''matlab/astro/\+ultrasat/.*\.prompt\.md$''',
+    '''\+debug/.*debug_VirtualTime\.m$''',
+    '''\+ultrasat/\+api/\+debug/.*\.m$''',
+    '''matlab/soc/\+soc/\+api/debug.*\.m$''',
+]
+
+[[allowlists]]
+description = """
+NativeXml.pas (vendored, both the delphi/ and lazarus/ copies). The hits are
+Pascal variable declarations in its AES helper -- `AESKey128: TAESKey128;` --
+which the generic-api-key rule reads as a `key:` assignment. Third-party code,
+no credential.
+"""
+targetRules = ["generic-api-key"]
+paths = [
+    '''NativeXml\.pas$''',
+]
+
+# --- rotation ledger --------------------------------------------------------
 #
-# It is deliberately left un-allowlisted so the weekly history scan keeps
-# reporting it until someone confirms the key pair has been revoked in AWS.
-# Once rotated, add it here with the rotation date and who did it.
+# This project does NOT scrub history. Once a secret has been pushed to a
+# public repository it is public, and rewriting 80 refs does not un-publish it:
+# forks, clones and caches keep their copies. Rotation is the remedy; the
+# history entry then becomes a harmless record of a credential that no longer
+# works.
+#
+# So the workflow is: rotate the credential, confirm the old one is dead, then
+# retire its finding here with the date and who did it. Until an entry appears,
+# the weekly scan keeps reporting -- which is the point.
+#
+# Template:
+#
+#   [[allowlists]]
+#   description = """
+#   <what it was> -- rotated <YYYY-MM-DD> by <who>. Old value revoked and
+#   confirmed dead on <how it was verified>. History hit retained below only to
+#   silence the scan.
+#   """
+#   commits = ["30dbc93630c6..."]
+#
+# Outstanding, deliberately NOT allowlisted until rotation is confirmed:
+#
+#   aws/admin/KeyPair1.pem       commit 30dbc9363, 2021-05-09
+#                                Real 1674-byte RSA private key. Deleted from
+#                                HEAD in 7c2d02659, still reachable from ~80
+#                                refs on both the public upstream and this
+#                                fork. Revoke the EC2 key pair in AWS and check
+#                                CloudTrail for use.
+#
+#   TNS bot API key              live in HEAD: +VO/+TNS/downloadAll.m,
+#                                queryTNS.m, searchCooWWW.m. Bot LAST_Bot1,
+#                                TNS_ID 159514. Regenerate on the TNS site and
+#                                move it to an environment variable.
+#
+#   Dynu DDNS API key            web/ddns/ddns.md, commit b5ce2a7c45de.
+#                                Regenerate at dynu.com/ControlPanel/APICredentials.
+#
+#   FMSoft support password      delphi/packages/unigui/unigui-license/,
+#                                commit 56137e969cc9. A personal account
+#                                password, not a service credential -- change
+#                                it on the vendor's site.
+#
+#   DB passwords in HEAD         matlab/python/test1/clickhouse_test.m,
+#                                clickhouse_test1.m,
+#                                matlab/testing/test_db/postgres1.m,
+#                                matlab/util/+db/draft/Database.m. Below the
+#                                default rules' threshold, so gitleaks does not
+#                                flag them, but they are hardcoded all the same.
